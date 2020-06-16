@@ -1,0 +1,1058 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<p><img src="media/image1.jpg" width="419" height="65" /></p>
+<blockquote>
+<p>Carrera: Licenciatura en Economía</p>
+</blockquote>
+<h1 id="índice-de-actividad-económica-de-mendoza-por-análisis-de-componentes-principales">ÍNDICE DE ACTIVIDAD ECONÓMICA DE MENDOZA, POR ANÁLISIS DE COMPONENTES PRINCIPALES </h1>
+<p>Trabajo de Investigación</p>
+<p>POR</p>
+<p>Fernando Deluret</p>
+<p>Profesor Tutor</p>
+<p>Mónica Calderón</p>
+<p>M e n d o z a - a ñ o 2 0 1 9</p>
+<h1 id="indice">INDICE </h1>
+<table>
+<thead>
+<tr class="header">
+<th>Introducción .………………………………………………………………………………………………….……………………........</th>
+<th>3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CAPÍTULO I – CONCEPTOS PREVIOS …………………………………………………………………….……………….........</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td><ol style="list-style-type: decimal">
+<li><p>Vectores y espacios vectoriales ………………………………………………………………….………….</p></li>
+</ol></td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td><ol style="list-style-type: decimal">
+<li><p>Ortogonalidad ……………………..……………………………………………………………….……………...</p></li>
+</ol></td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td><ol style="list-style-type: decimal">
+<li><p>Proyecciones ortogonales ……………………………………………………………………………………..</p></li>
+</ol></td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td><ol style="list-style-type: decimal">
+<li><p>Complemento orthogonal …………………………………………………………….……………………….</p></li>
+</ol></td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>CAPÍTULO II – ANÁLISIS DE COMPONENTES PRINCIPALES …………………………………………………….........</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td>CAPÍTULO III – ANÁLISIS FACTORIAL …………………………………………………………………………………….........</td>
+<td>19</td>
+</tr>
+<tr class="even">
+<td>CAPÍTULO IV – ROTACIÓN DE COMPONENTES …………………………………………………………………….........</td>
+<td>23</td>
+</tr>
+<tr class="odd">
+<td>CAPÍTULO V – CASO PRÁCTICO …………………………………………………………………………………………….........</td>
+<td>25</td>
+</tr>
+<tr class="even">
+<td>Conclusiones ………………………………………………………………………………………………….……………………........</td>
+<td>32</td>
+</tr>
+<tr class="odd">
+<td>Bibliografía consultada ….……………………………………………………………………………….……………………........</td>
+<td>34</td>
+</tr>
+</tbody>
+</table>
+<p>INTRODUCCIÓN</p>
+<p>El análisis de componentes principales (ACP) es un método de reducción de dimensionalidad lineal de los datos. El objetivo es poder reducir el número de variables necesario para representar un conjunto de datos. Para esto lo que se hace es realizar una proyección ortogonal de los datos originales en un subespacio vectorial de menor dimensión, y que por ende pueda ser expresado como un conjunto menor de variables.</p>
+<p>El presente trabajo se estructurará de la siguiente manera, en el capítulo 1 se analizarán una serie de conceptos previos necesarios tanto para el desarrollo matemático del ACP como para su interpretación práctica. En el capítulo 2 se realizará el desarrollo a partir del cual surge la fórmula resultante del ACP. En el capítulo 3 se analizará el tema desde la perspectiva del análisis factorial que nos permite añadir el componente de interpretabilidad de los componentes. En el capítulo 4 se analizará la rotación de componentes, que es la herramienta que nos permitirá relacionar las variables originales con los componentes o factores interpretando estas últimas como variables subyacentes observadas a través de los datos iniciales. En el capítulo 5 se trabajará con un caso numérico, el cual tendrá por objetivo tratar de construir un índice de actividad mensual para la provincia de Mendoza. Y, por último, se analizarán las consecuencias prácticas del ACP y se sacarán algunas conclusiones.</p>
+<p><strong>CAPÍTULO I</strong></p>
+<p><strong>CONCEPTOS PREVIOS</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>Vectores y espacios vectoriales</p></li>
+</ol>
+<p>Trabajando en <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mn>2</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^{2}</annotation></semantics></math> y dados 2 vectores <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mtext mathvariant="normal">AB</mtext><mo accent="true">¯</mo></mover><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">\overline{\text{AB}}\ </annotation></semantics></math> y <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mtext mathvariant="normal">AC</mtext><mo accent="true">¯</mo></mover><annotation encoding="application/x-tex">\overline{\text{AC}}</annotation></semantics></math> como se muestra en el Gráfico 1, podemos definir el módulo de un vector, la distancia entre vectores y el ángulo entre vectores de la siguiente manera:</p>
+<p><em>Gráfico 1</em></p>
+<blockquote>
+<p><img src="media/image2.png" width="305" height="302" /><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Siendo</mtext><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal">  </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>w</mi><mn>1</mn></msub><mo>=</mo><mover><mtext mathvariant="normal">AB</mtext><mo accent="true">¯</mo></mover><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal">  y  </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>w</mi><mn>2</mn></msub><mo>=</mo><mover><mtext mathvariant="normal">AC</mtext><mo accent="true">¯</mo></mover><mo>,</mo><mspace width="0.222em"></mspace><mtext mathvariant="normal">con</mtext><mspace width="0.222em"></mspace><msub><mi>w</mi><mi>i</mi></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><msub><mi>x</mi><mi>i</mi></msub></mtd></mtr><mtr><mtd columnalign="center"><msub><mi>y</mi><mi>i</mi></msub></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">\text{Siendo}\text{\ \ }w_{1} = \overline{\text{AB}}\text{\ \ y\ \ }w_{2} = \overline{\text{AC}},\ \text{con}\ w_{i} = \begin{bmatrix}
+x_{i} \\
+y_{i} \\
+\end{bmatrix}</annotation></semantics></math></p>
+<p>Podemos definir el producto punto entre 2 vectores como:</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><msub><mi>w</mi><mn>1</mn></msub><mi>T</mi></msup><mrow><mtext mathvariant="normal">. </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>w</mi><mn>2</mn></msub><mo>=</mo><mspace width="0.222em"></mspace><msub><mi>x</mi><mn>1</mn></msub><msub><mtext mathvariant="normal">.x</mtext><mn>2</mn></msub><mo>+</mo></mrow><annotation encoding="application/x-tex">{w_{1}}^{T}\text{.\ }w_{2} = \ x_{1}\text{.x}_{2} +</annotation></semantics></math> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mn>1</mn></msub><mi>.</mi><msub><mi>y</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">y_{1}.y_{2}</annotation></semantics></math></p>
+<p>El <em>módulo</em> de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>w</mi><mn>1</mn></msub><annotation encoding="application/x-tex">w_{1}</annotation></semantics></math> será <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo><msub><mi>w</mi><mn>1</mn></msub><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo><mo>=</mo><msqrt><mrow><msup><mi>w</mi><mi>T</mi></msup><mtext mathvariant="normal">.w</mtext></mrow></msqrt></mrow><annotation encoding="application/x-tex">||w_{1}|| = \sqrt{w^{T}\text{.w}}</annotation></semantics></math> y esto es igual al segmento <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mtext mathvariant="normal">AB</mtext><mo accent="true">¯</mo></mover><annotation encoding="application/x-tex">\overline{\text{AB}}</annotation></semantics></math>.</p>
+<p>La <em>distancia</em> entre <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mn>1</mn></msub><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> y </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>w</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">w_{1}\text{\ y\ }w_{2}</annotation></semantics></math> será el modulo del vector diferencia entre ambos <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo><msub><mi>w</mi><mn>1</mn></msub><mo>−</mo><msub><mi>w</mi><mn>2</mn></msub><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo></mrow><annotation encoding="application/x-tex">||w_{1} - w_{2}||</annotation></semantics></math> lo cual va a ser igual al segmento <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mtext mathvariant="normal">BC</mtext><mo accent="true">¯</mo></mover><annotation encoding="application/x-tex">\overline{\text{BC}}</annotation></semantics></math>.</p>
+<p>El <em>ángulo</em> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math> entre estos 2 vectores va a ser tal que: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>cos</mo><mrow><mo stretchy="false" form="prefix">(</mo><mi>α</mi><mo stretchy="false" form="postfix">)</mo></mrow><mo>=</mo><mfrac><mrow><msup><msub><mi>w</mi><mn>1</mn></msub><mi>T</mi></msup><mrow><mtext mathvariant="normal">. </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>w</mi><mn>2</mn></msub></mrow><mrow><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo><msub><mi>w</mi><mn>1</mn></msub><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo><mi>.</mi><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo><msub><mi>w</mi><mn>2</mn></msub><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">\cos{(\alpha)} = \frac{{w_{1}}^{T}\text{.\ }w_{2}}{||w_{1}||.||w_{2}||}</annotation></semantics></math></p>
+</blockquote>
+<p>Un espacio vectorial es un conjunto de vectores que cumplen las siguientes propiedades:</p>
+<ul>
+<li><p>Son cerrados respecto de una operación (por ejemplo la suma): si <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mn>1</mn></msub><mo>,</mo><msub><mi>w</mi><mn>2</mn></msub><mo>∈</mo><mi>V</mi><mspace width="0.222em"></mspace><mo>⇒</mo><mspace width="0.222em"></mspace><msub><mi>w</mi><mn>1</mn></msub><mo>+</mo><msub><mi>w</mi><mn>2</mn></msub><mo>∈</mo><mi>V</mi></mrow><annotation encoding="application/x-tex">w_{1},w_{2} \in V\  \Rightarrow \ w_{1} + w_{2} \in V</annotation></semantics></math></p></li>
+<li><p>Asociatividad: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mn>1</mn></msub><mo>+</mo><msub><mrow><mo stretchy="false" form="prefix">(</mo><mi>w</mi></mrow><mn>2</mn></msub><mo>+</mo><msub><mi>w</mi><mn>3</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mrow><mo stretchy="false" form="prefix">(</mo><mi>w</mi></mrow><mn>1</mn></msub><mo>+</mo><msub><mi>w</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>+</mo><msub><mi>w</mi><mn>3</mn></msub></mrow><annotation encoding="application/x-tex">w_{1} + {(w}_{2} + w_{3}) = {(w}_{1} + w_{2}) + w_{3}</annotation></semantics></math></p></li>
+<li><p>Elemento neutral (<em>e</em>): <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∃</mo><mi>e</mi><mspace width="0.222em"></mspace><mo>∈</mo><mi>V</mi><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mtext mathvariant="normal">tal que</mtext><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal">        </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>w</mi><mn>1</mn></msub><mo>+</mo><mi>e</mi><mo>=</mo><msub><mrow><mi>e</mi><mo>+</mo><mi>w</mi></mrow><mn>1</mn></msub><mo>=</mo><msub><mi>w</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">\exists e\  \in V\ \ \ \text{tal\ que}\text{\ \ \ \ \ \ \ \ }w_{1} + e = {e + w}_{1} = w_{1}</annotation></semantics></math></p></li>
+<li><p>Elemento inverso: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∃</mo><msup><msub><mi>w</mi><mn>1</mn></msub><mrow><mo>−</mo><mn>1</mn></mrow></msup><mspace width="0.222em"></mspace><mo>∈</mo><mi>V</mi><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mtext mathvariant="normal">tal que</mtext><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal">        </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>w</mi><mn>1</mn></msub><mo>+</mo><msup><msub><mi>w</mi><mn>1</mn></msub><mrow><mo>−</mo><mn>1</mn></mrow></msup><mo>=</mo><mi>e</mi></mrow><annotation encoding="application/x-tex">\exists{w_{1}}^{- 1}\  \in V\ \ \text{tal\ que}\text{\ \ \ \ \ \ \ \ }w_{1} + {w_{1}}^{- 1} = e</annotation></semantics></math></p></li>
+<li><p>Multiplicación por un escalar: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mn>1</mn></msub><mo>∈</mo><mi>V</mi><mspace width="0.222em"></mspace><mo>⇒</mo><mspace width="0.222em"></mspace><mi>λ</mi><mi>.</mi><msub><mi>w</mi><mn>1</mn></msub><mo>∈</mo><mi>V</mi></mrow><annotation encoding="application/x-tex">w_{1} \in V\  \Rightarrow \ \lambda.w_{1} \in V</annotation></semantics></math></p></li>
+</ul>
+<p>Un subespacio vectorial es entonces un subconjunto de ese espacio tal que si aplicamos cualquiera de las operaciones arriba mencionadas entre vectores del subespacio el vector resultante seguirá perteneciendo al mismo. Una consecuencia de esto es que el subespacio debe tener si o si el elemento neutro, por ejemplo, las rectas que pueden ser subespacio de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mn>2</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^{2}</annotation></semantics></math> deben pasar si o si por el origen de coordenadas.</p>
+<p>Dado un espacio vectorial V, un <em>conjunto generador</em> para este espacio es un conjunto de vectores que combinados linealmente permiten construir cualquier vector de dicho espacio. Si adicionalmente el conjunto generador cumple las siguientes propiedades se dice que este conjunto es una <em>base</em> de ese espacio vectorial y a cada uno de los vectores de la base se le llama <em>vector base:</em></p>
+<ul>
+<li><p>Mínimo: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><mspace width="0.222em"></mspace><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>w</mi><mn>1</mn></msub><mo>,</mo><msub><mi>w</mi><mn>2</mn></msub><mo>,</mo><mspace width="0.222em"></mspace><mi>…</mi><mspace width="0.222em"></mspace><mo>,</mo><msub><mi>w</mi><mi>k</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mi>A</mi><mo>⊆</mo><mi>V</mi></mrow><annotation encoding="application/x-tex">A = \ \left\lbrack w_{1},w_{2},\ \ldots\ ,w_{k} \right\rbrack\ \ \ \ A \subseteq V</annotation></semantics></math>, será mínimo si no existe otro conjunto generador con menos de k vectores.</p></li>
+<li><p>Los vectores de A deben ser linealmente independientes</p></li>
+</ul>
+<p>Una propiedad de una base es que 2 combinaciones lineales diferentes de sus vectores base darán como resultado 2 vectores diferentes entre sí siempre.</p>
+<p>Una <em>base estándar</em> de un espacio <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mi>n</mi></msup><annotation encoding="application/x-tex">\mathbb{R}^{n}</annotation></semantics></math>, es una base tal que la matriz formada por sus vectores base es la matriz identidad de dimensión <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">n \times n</annotation></semantics></math>. Por ejemplo, la base estándar para <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mn>3</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^{3}</annotation></semantics></math> es:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><mspace width="0.222em"></mspace><mrow><mo stretchy="true" form="prefix">{</mo><munder><mrow></mrow><mtable><mtr><mtd columnalign="center"><mtext mathvariant="normal">vector</mtext></mtd></mtr><mtr><mtd columnalign="center"><mtext mathvariant="normal">base</mtext></mtd></mtr></mtable></munder><mspace width="0.222em"></mspace><mo>,</mo><mspace width="0.222em"></mspace><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center"><mn>0</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="0.222em"></mspace><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center"><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo stretchy="true" form="postfix">}</mo></mrow></mrow><annotation encoding="application/x-tex">A = \ \left\{ \underset{\begin{matrix}
+\text{vector} \\
+\text{base} \\
+\end{matrix}}{}\ ,\ \begin{bmatrix}
+0 \\
+1 \\
+0 \\
+\end{bmatrix},\ \begin{bmatrix}
+0 \\
+0 \\
+1 \\
+\end{bmatrix} \right\}</annotation></semantics></math></p>
+<p>Puede haber otras bases que no sean la estándar para un espacio vectorial, pero todas van a tener la misma cantidad de vectores.</p>
+<ol style="list-style-type: decimal">
+<li><p>Ortogonalidad</p></li>
+</ol>
+<p>Se dice que dos vectores son ortogonales entre sí, si el ángulo que forman es de 90°. Por lo que, dada la fórmula del ángulo entre vectores:</p>
+<blockquote>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>cos</mo><mrow><mo stretchy="false" form="prefix">(</mo><msup><mn>90</mn><mi>o</mi></msup><mo stretchy="false" form="postfix">)</mo></mrow><mo>=</mo><mfrac><mrow><msup><msub><mi>w</mi><mn>1</mn></msub><mi>T</mi></msup><mrow><mtext mathvariant="normal">. </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>w</mi><mn>2</mn></msub></mrow><mrow><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo><msub><mi>w</mi><mn>1</mn></msub><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo><mi>.</mi><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo><msub><mi>w</mi><mn>2</mn></msub><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo></mrow></mfrac><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\cos{(90^{o})} = \frac{{w_{1}}^{T}\text{.\ }w_{2}}{||w_{1}||.||w_{2}||} = 0</annotation></semantics></math></p>
+</blockquote>
+<p>Para que esto se cumpla el producto punto entre ambos vectores debe ser igual a cero. Una forma de interpretar la ortogonalidad es que dos vectores ortogonales son “lo más diferentes posible” entre sí.</p>
+<p>Si los vectores de una base son ortogonales entre si <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><msub><mi>w</mi><mi>i</mi></msub><mi>T</mi></msup><mrow><mtext mathvariant="normal">. </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>w</mi><mi>k</mi></msub><mo>=</mo><mn>0</mn><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mi>i</mi><mo>≠</mo><mi>k</mi><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">{w_{i}}^{T}\text{.\ }w_{k} = 0\ \ \ i \neq k\ \ </annotation></semantics></math>y todos tienen módulo igual a 1 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">|</mo><mrow><mo stretchy="true" form="prefix">|</mo><msub><mi>w</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">|</mo></mrow><mo stretchy="true" form="postfix">|</mo></mrow><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\left| \left| w_{i} \right| \right| = 1</annotation></semantics></math> entonces la base es <em>ortonormal</em>.</p>
+<ol style="list-style-type: decimal">
+<li><p>Proyecciones ortogonales</p></li>
+</ol>
+<p>Dado el subespacio vectorial <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo>⊂</mo><msup><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">U \subset \mathbb{R}^{2}</annotation></semantics></math> y el vector <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mo>∈</mo><msup><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">w \in \mathbb{R}^{2}</annotation></semantics></math>, el cual puede ser representado como una combinación lineal de los vectores base de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mn>2</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^{2}</annotation></semantics></math>. Supongamos que queremos representar <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>w</mi><annotation encoding="application/x-tex">w</annotation></semantics></math> en el subespacio U, vamos a querer que el nuevo vector <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mi>′</mi><mo>∈</mo><mi>U</mi></mrow><annotation encoding="application/x-tex">w&#39; \in U</annotation></semantics></math> sea lo más parecido al vector original. Lo cual es equivalente a minimizar el segmento que representa el vector diferencia <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>w</mi><mo>−</mo><mi>w</mi><mi>′</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(w - w&#39;)</annotation></semantics></math>, el cual en el Gráfico 2 está representado por las distintas líneas punteadas para cada caso.</p>
+<p>Siendo <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>b</mi><mn>1</mn></msub><mo>=</mo><mspace width="0.222em"></mspace><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><msub><mi>b</mi><mn>11</mn></msub></mtd></mtr><mtr><mtd columnalign="center"><msub><mi>b</mi><mn>12</mn></msub></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>∈</mo><mi>U</mi></mrow><annotation encoding="application/x-tex">b_{1} = \ \begin{bmatrix}
+b_{11} \\
+b_{12} \\
+\end{bmatrix} \in U</annotation></semantics></math> una base del subespacio U, el nuevo vector <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mi>′</mi></mrow><annotation encoding="application/x-tex">w&#39;</annotation></semantics></math> va a poder ser expresado como una combinación lineal de dicha base <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>w</mi><mi>′</mi></msup><mo>=</mo><mspace width="0.222em"></mspace><mi>β</mi><mi>.</mi><msub><mi>b</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">w^{&#39;} = \ \beta.b_{1}</annotation></semantics></math>, donde <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> es un escalar y representa las coordenadas de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mi>′</mi></mrow><annotation encoding="application/x-tex">w&#39;</annotation></semantics></math> en U.</p>
+<p>La pendiente de U nos la va a dar la relación entre las componentes <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mspace width="0.222em"></mspace><mi>e</mi><mspace width="0.222em"></mspace><msub><mi>y</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">x_{1}\ e\ y_{1}</annotation></semantics></math> del vector base <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mn>1</mn></msub><annotation encoding="application/x-tex">b_{1}</annotation></semantics></math>.</p>
+<p><img src="media/image3.png" width="345" height="324" /><em>Gráfico 2</em></p>
+<p><img src="media/image4.png" width="271" height="240" /></p>
+<p>Como se puede observar en el grafico anterior de acuerdo al <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> que elijamos va a ser el largo del vector <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mi>′</mi></mrow><annotation encoding="application/x-tex">w&#39;</annotation></semantics></math> resultante. Y por ende, el largo del vector diferencia <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>w</mi><mo>−</mo><mi>w</mi><mi>′</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(w - w&#39;)</annotation></semantics></math> va a depender también de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math>. Existirá un <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>β</mi><mo>*</mo></msup><annotation encoding="application/x-tex">\beta^{*}</annotation></semantics></math> que minimice esa distancia, el cual va a ser tal que haga que el vector diferencia y el vector base <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mn>1</mn></msub><annotation encoding="application/x-tex">b_{1}</annotation></semantics></math> sean ortogonales (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><msup><mn>90</mn><mi>o</mi></msup></mrow><annotation encoding="application/x-tex">\alpha = 90^{o}</annotation></semantics></math>). Esto como se vio en el apartado anterior es equivalente a decir que el producto punto entre ambos vectores es igual a cero, matemáticamente se puede expresar:</p>
+<blockquote>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><msub><mi>b</mi><mn>1</mn></msub><mi>T</mi></msup><mrow><mtext mathvariant="normal">. </mtext><mspace width="0.333em"></mspace></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>w</mi><mo>−</mo><msup><mi>w</mi><mi>′</mi></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">{b_{1}}^{T}\text{.\ }\left( w - w^{&#39;} \right) = 0</annotation></semantics></math></p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><msub><mi>b</mi><mn>1</mn></msub><mi>T</mi></msup><mi>.</mi><mi>w</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mo stretchy="false" form="prefix">(</mo><msup><msub><mi>b</mi><mn>1</mn></msub><mi>T</mi></msup><mi>.</mi><msup><mi>w</mi><mi>′</mi></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\Rightarrow \left( {b_{1}}^{T}.w) - ({b_{1}}^{T}.w^{&#39;} \right) = 0</annotation></semantics></math> Por propiedad de bilineariedad del producto punto</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo><msup><msub><mrow><mo stretchy="false" form="prefix">(</mo><mi>b</mi></mrow><mn>1</mn></msub><mi>T</mi></msup><mi>.</mi><mi>w</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mo stretchy="false" form="prefix">(</mo><msup><msub><mi>b</mi><mn>1</mn></msub><mi>T</mi></msup><mtext mathvariant="normal">.β.</mtext><msub><mi>b</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\Rightarrow {{(b}_{1}}^{T}.w) - ({b_{1}}^{T}\text{.β.}b_{1}) = 0</annotation></semantics></math> Usando la definición de w’</p>
+</blockquote>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo><msup><msub><mrow><mo stretchy="false" form="prefix">(</mo><mi>b</mi></mrow><mn>1</mn></msub><mi>T</mi></msup><mi>.</mi><mi>w</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>β</mi><mo stretchy="false" form="prefix">(</mo><munder><mrow></mrow><msup><mrow><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo><msub><mi>b</mi><mn>1</mn></msub><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo></mrow><mn>2</mn></msup></munder><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\Rightarrow {{(b}_{1}}^{T}.w) - \beta(\underset{{||b_{1}||}^{2}}{}) = 0</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo><mi>β</mi><mo>=</mo><mfrac><mrow><msup><msub><mi>b</mi><mn>1</mn></msub><mi>T</mi></msup><mtext mathvariant="normal">.w</mtext></mrow><msup><mrow><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo><msub><mi>b</mi><mn>1</mn></msub><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo></mrow><mn>2</mn></msup></mfrac></mrow><annotation encoding="application/x-tex">\Rightarrow \beta = \frac{{b_{1}}^{T}\text{.w}}{{||b_{1}||}^{2}}</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo><msup><mi>w</mi><mi>′</mi></msup><mo>=</mo><mi>β</mi><mi>.</mi><msub><mi>b</mi><mn>1</mn></msub><mo>=</mo><munder><mrow></mrow><mtable><mtr><mtd columnalign="center"><mrow><mtext mathvariant="normal">Matriz </mtext><mspace width="0.333em"></mspace></mrow></mtd></mtr><mtr><mtd columnalign="center"><mrow><mtext mathvariant="normal">de </mtext><mspace width="0.333em"></mspace></mrow></mtd></mtr><mtr><mtd columnalign="center"><mi>p</mi><mi>r</mi><mi>o</mi><mi>y</mi><mi>e</mi><mi>c</mi><mi>c</mi><mi>i</mi><mi>o</mi><mi>n</mi></mtd></mtr></mtable></munder><mrow><mtext mathvariant="normal">w </mtext><mspace width="0.333em"></mspace></mrow></mrow><annotation encoding="application/x-tex">\Rightarrow w^{&#39;} = \beta.b_{1} = \underset{\begin{matrix}
+\text{Matriz\ } \\
+\text{de\ } \\
+proyeccion \\
+\end{matrix}}{}\text{w\ }</annotation></semantics></math></p>
+<p>La matriz de proyección es aquella matriz (en este caso <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2 \times 2</annotation></semantics></math>) que multiplicada por el vector original w nos da la proyección de este en el subespacio U (w’). Si <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mn>1</mn></msub><annotation encoding="application/x-tex">b_{1}</annotation></semantics></math> es ortonormal (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo><msub><mi>b</mi><mn>1</mn></msub><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo></mrow><mn>2</mn></msup><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">{||b_{1}||}^{2} = 1</annotation></semantics></math>) la matriz de proyección va a ser simétrica:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>b</mi><mn>1</mn></msub><mi>.</mi><msup><msub><mi>b</mi><mn>1</mn></msub><mi>T</mi></msup><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>b</mi><mn>1</mn></msub><mi>.</mi><msup><msub><mi>b</mi><mn>1</mn></msub><mi>T</mi></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>T</mi></msup></mrow><annotation encoding="application/x-tex">b_{1}.{b_{1}}^{T} = \left( b_{1}.{b_{1}}^{T} \right)^{T}</annotation></semantics></math></p>
+<p>Se puede ver entonces, que antes para representar al vector w necesitábamos dos coordenadas (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mspace width="0.222em"></mspace><mi>e</mi><mspace width="0.222em"></mspace><msub><mi>y</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">x_{1}\ e\ y_{1}</annotation></semantics></math>) y ahora necesitamos una sola (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math>).</p>
+<p>Algo importante a destacar en este tema es que el nuevo vector w’ va a seguir perteneciendo a <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mn>2</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^{2}</annotation></semantics></math>, a pesar de que ahora solo dependa de un parámetro (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math>). Esto es debido a que el vector base de U (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mn>1</mn></msub><annotation encoding="application/x-tex">b_{1}</annotation></semantics></math>) tiene 2 componentes y por ende w’ también. Por este motivo no sería lo mismo por más que hagamos una proyección sobre una recta partir desde <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mn>2</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^{2}</annotation></semantics></math>, que por ejemplo desde <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mn>3</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^{3}</annotation></semantics></math>, en cuyo caso <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mn>1</mn></msub><annotation encoding="application/x-tex">b_{1}</annotation></semantics></math> tendría 3 componentes. Una forma de ver esto es que <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mn>1</mn></msub><annotation encoding="application/x-tex">b_{1}</annotation></semantics></math> nos está dando información de acuerdo a los grados de libertad de rotación del espacio vectorial inicial, por ejemplo en <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mn>2</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^{2}</annotation></semantics></math> la recta U solo puede rotar a lo largo del plano XY en tanto que en <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mn>3</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^{3}</annotation></semantics></math> la recta podría rotar respecto al plano respecto a XY, YZ y XZ.</p>
+<p>Supongamos ahora que <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mo>∈</mo><msup><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mi>D</mi></msup></mrow><annotation encoding="application/x-tex">w \in \mathbb{R}^{D}</annotation></semantics></math> es decir <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>w</mi><mn>1</mn></msub><mo>,</mo><mspace width="0.222em"></mspace><msub><mi>w</mi><mn>2</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><mspace width="0.222em"></mspace><msub><mi>w</mi><mi>D</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">w = \left\lbrack w_{1},\ w_{2},\ldots,\ w_{D} \right\rbrack</annotation></semantics></math> y <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo>⊂</mo><msup><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mi>D</mi></msup></mrow><annotation encoding="application/x-tex">U \subset \mathbb{R}^{D}</annotation></semantics></math>, pero ahora en vez de ser una recta (dimensión igual a 1) es un subespacio M-dimensional, con <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>&lt;</mo><mi>D</mi></mrow><annotation encoding="application/x-tex">M &lt; D</annotation></semantics></math>. Es decir, tiene M vectores base <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>b</mi><mn>1</mn></msub><mo>,</mo><mspace width="0.222em"></mspace><msub><mi>b</mi><mn>2</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><mspace width="0.222em"></mspace><msub><mi>b</mi><mi>M</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">b = \left\lbrack b_{1},\ b_{2},\ldots,\ b_{M} \right\rbrack</annotation></semantics></math> donde a su vez cada <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mi>i</mi></msub><annotation encoding="application/x-tex">b_{i}</annotation></semantics></math> tiene dimensión <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>×</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">D \times 1</annotation></semantics></math> ya que U es un subespacio de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mi>D</mi></msup><annotation encoding="application/x-tex">\mathbb{R}^{D}</annotation></semantics></math>.</p>
+<p>Para aclarar esto último, la cantidad de vectores base <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mi>i</mi></msub><annotation encoding="application/x-tex">b_{i}</annotation></semantics></math> que tenga U dice si el o los vectores que se proyecten lo harán sobre una recta, un plano etc. Y “D” lo que dice es que esa recta o plano debe dibujarse en el espacio D-dimensional. Por ejemplo <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center"><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">b = \begin{bmatrix}
+0 \\
+0 \\
+1 \\
+\end{bmatrix}</annotation></semantics></math> genera una recta en <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mn>3</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^{3}</annotation></semantics></math> en tanto que el conjunto <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center"><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center"><mn>0</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo stretchy="true" form="postfix">}</mo></mrow></mrow><annotation encoding="application/x-tex">b = \left\{ \begin{bmatrix}
+0 \\
+0 \\
+1 \\
+\end{bmatrix},\begin{bmatrix}
+0 \\
+1 \\
+0 \\
+\end{bmatrix} \right\}</annotation></semantics></math> genera un plano en <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mn>3</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^{3}</annotation></semantics></math>, luego sobre ese plano o recta es sobre el que se proyectara el vector original.</p>
+<p>En este caso multidimensional <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>w</mi><mi>′</mi></msup><mo>=</mo><mspace width="0.222em"></mspace><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>M</mi></msubsup><mrow><msub><mi>β</mi><mi>i</mi></msub><mi>.</mi><msub><mi>b</mi><mi>i</mi></msub></mrow></mrow><annotation encoding="application/x-tex">w^{&#39;} = \ \sum_{i = 1}^{M}{\beta_{i}.b_{i}}</annotation></semantics></math> notado matricialmente <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>w</mi><mi>′</mi></msup><mo>=</mo><mi>B</mi><mi>.</mi><mi>β</mi></mrow><annotation encoding="application/x-tex">w^{&#39;} = B.\beta</annotation></semantics></math>, donde B es la matriz que representa el conjunto de los vectores base de U (con dimensión <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>×</mo><mi>M</mi></mrow><annotation encoding="application/x-tex">D \times M</annotation></semantics></math>) y <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> es el vector <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>×</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">M \times 1</annotation></semantics></math> con las M coordenadas.</p>
+<p>La condición que se ponía antes para que la proyección fuera ortogonal es que el vector diferencia fuera ortogonal con el vector base del nuevo subespacio. Por ende lo que se va a exigir ahora es que <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>w</mi><mo>−</mo><mi>w</mi><mi>′</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(w - w&#39;)</annotation></semantics></math> sea ortogonal con cada uno de los M vectores base. Para verlo con un ejemplo, supóngase el caso en que se quiere proyectar un vector de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mn>3</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^{3}</annotation></semantics></math> en el plano XY (es decir componente z=0) el cual lo vamos a suponer horizontal como se ilustra en el gráfico 3, en tanto que la componente Z daría la altura. La forma de que el vector diferencia sea lo más pequeño posible seria bajando verticalmente, es decir en forma perpendicular al plano XY, con lo cual el vector diferencia va a ser ortogonal a todos los vectores de XY incluidos ambos vectores base.</p>
+<p><em>Gráfico 3</em></p>
+<blockquote>
+<p><img src="media/image5.png" alt="D:\Asset 8.png" width="176" height="298" /></p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><msub><mi>b</mi><mi>i</mi></msub><mi>T</mi></msup><mrow><mtext mathvariant="normal">. </mtext><mspace width="0.333em"></mspace></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>w</mi><mo>−</mo><msup><mi>w</mi><mi>′</mi></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mi>c</mi><mi>o</mi><mi>n</mi><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mi>i</mi><mo>=</mo><mn>1</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>2</mn><mo>,</mo><mspace width="0.222em"></mspace><mi>…</mi><mo>,</mo><mspace width="0.222em"></mspace><mi>M</mi></mrow><annotation encoding="application/x-tex">{b_{i}}^{T}\text{.\ }\left( w - w^{&#39;} \right) = 0\ \ \ \ \ con\ \ i = 1,\ 2,\ \ldots,\ M</annotation></semantics></math></p>
+</blockquote>
+<p>Es decir, ahora hay un sistema de M ecuaciones simultáneas. Notado matricialmente:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><munder><mrow></mrow><mtext mathvariant="normal">MxD</mtext></munder><mrow><mo stretchy="true" form="prefix">(</mo><munder><mrow></mrow><mrow><mi>D</mi><mi>x</mi><mn>1</mn></mrow></munder><mo>−</mo><munder><mrow></mrow><mrow><mi>D</mi><mi>x</mi><mn>1</mn></mrow></munder><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn><mo>∖</mo><mi>n</mi></mrow><mrow><mo>⇒</mo><msup><mi>B</mi><mi>T</mi></msup><mi>.</mi><mi>w</mi><mo>−</mo><msup><mi>B</mi><mi>T</mi></msup><mi>.</mi><mi>B</mi><mi>.</mi><mi>β</mi><mo>=</mo><mn>0</mn><mo>∖</mo><mi>n</mi></mrow><mrow><mo>⇒</mo><mi>β</mi><mo>=</mo><msup><mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>B</mi><mi>T</mi></msup><mtext mathvariant="normal">.B</mtext><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo>−</mo><mn>1</mn></mrow></msup><mi>B</mi></mrow><mi>T</mi></msup><mtext mathvariant="normal">.w</mtext><mo>∖</mo><mi>n</mi></mrow><mrow><mo>⇒</mo><msup><mi>w</mi><mi>′</mi></msup><mo>=</mo><mi>B</mi><mi>.</mi><mi>β</mi><mo>=</mo><munder><mrow></mrow><mtable><mtr><mtd columnalign="center"><mtext mathvariant="normal">Matriz de proyeccion</mtext></mtd></mtr><mtr><mtd columnalign="center"><mo stretchy="false" form="prefix">(</mo><mi>D</mi><mi>x</mi><mi>D</mi><mo stretchy="false" form="postfix">)</mo></mtd></mtr></mtable></munder><mtext mathvariant="normal">.w</mtext></mrow></mrow><annotation encoding="application/x-tex">{\underset{\text{MxD}}{}\left( \underset{Dx1}{} - \underset{Dx1}{} \right) = 0\backslash n}{\Rightarrow B^{T}.w - B^{T}.B.\beta = 0\backslash n}{\Rightarrow \beta = {\left( B^{T}\text{.B} \right)^{- 1}B}^{T}\text{.w}\backslash n}{\Rightarrow w^{&#39;} = B.\beta = \underset{\begin{matrix}
+\text{Matriz\ de\ proyeccion} \\
+(DxD) \\
+\end{matrix}}{}\text{.w}}</annotation></semantics></math></p>
+<p>Donde ahora w’ y <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> son las fórmulas para calcular la proyección pero para el caso general de D dimensiones y llevar al vector a un subespacio con solo M coordenadas (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>&lt;</mo><mi>D</mi></mrow><annotation encoding="application/x-tex">M &lt; D</annotation></semantics></math>). Una vez más w’ seguirá siendo un vector <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>×</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">D \times 1</annotation></semantics></math>.</p>
+<ol style="list-style-type: decimal">
+<li><p>Complemento ortogonal</p></li>
+</ol>
+<p>Dado un espacio vectorial <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>V</mi><mi>n</mi></msup><annotation encoding="application/x-tex">V^{n}</annotation></semantics></math> y un subespacio <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo>⊆</mo><mi>V</mi><mo>,</mo><mspace width="0.222em"></mspace><mtext mathvariant="normal">con</mtext><mspace width="0.222em"></mspace><msup><mi>W</mi><mi>k</mi></msup></mrow><annotation encoding="application/x-tex">W \subseteq V,\ \text{con}\ W^{k}</annotation></semantics></math> (siendo n y k las dimensiones de los espacios). Entonces el complemento ortogonal de W es un subespacio <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>W</mi><mi>⊥</mi></msup><annotation encoding="application/x-tex">W^{\bot}</annotation></semantics></math> de dimensión (n-k), tal que <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>W</mi><mi>⊥</mi></msup><annotation encoding="application/x-tex">W^{\bot}</annotation></semantics></math> contiene todos los vectores de V que sean ortogonales a todos los vectores de W.</p>
+<p>Cada vector <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>V</mi></mrow><annotation encoding="application/x-tex">x \in V</annotation></semantics></math> se puede <em>descomponer ortogonalmente</em> (de forma única) de la siguiente forma:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>k</mi></munderover><mrow><msub><mi>δ</mi><mi>i</mi></msub><msub><mi>b</mi><mi>i</mi></msub></mrow><mo>+</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>n</mi><mo>−</mo><mi>k</mi></mrow></munderover><mrow><msub><mi>φ</mi><mi>i</mi></msub><msup><msub><mi>b</mi><mi>i</mi></msub><mi>⊥</mi></msup></mrow></mrow><annotation encoding="application/x-tex">x = \sum_{i = 1}^{k}{\delta_{i}b_{i}} + \sum_{i = 1}^{n - k}{\varphi_{i}{b_{i}}^{\bot}}</annotation></semantics></math></p>
+<p>Donde <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mi>i</mi></msub><annotation encoding="application/x-tex">b_{i}</annotation></semantics></math> y <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><msub><mi>b</mi><mi>i</mi></msub><mi>⊥</mi></msup><annotation encoding="application/x-tex">{b_{i}}^{\bot}</annotation></semantics></math> son los vectores base de los subespacios W y <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>W</mi><mi>⊥</mi></msup><annotation encoding="application/x-tex">W^{\bot}</annotation></semantics></math> respectivamente. Lo único que se está diciendo es que cualquier vector <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math> se puede expresar como una suma de un vector de W más un vector de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>W</mi><mi>⊥</mi></msup><annotation encoding="application/x-tex">W^{\bot}</annotation></semantics></math>. Por ejemplo, supongamos que W y <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>W</mi><mi>⊥</mi></msup><annotation encoding="application/x-tex">W^{\bot}</annotation></semantics></math> son 2 rectas pertenecientes a <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mn>2</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^{2}</annotation></semantics></math> perpendiculares entre sí, cualquier vector de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mn>2</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^{2}</annotation></semantics></math> puede ser expresado como una suma de vectores como en el Gráfico 4.</p>
+<p><em>Gráfico 4</em></p>
+<p><img src="media/image6.png" width="236" height="228" /></p>
+<p><strong>CAPÍTULO II</strong></p>
+<p><strong>ANÁLISIS DE COMPONENTES PRINCIPALES</strong></p>
+<p>Dado un conjunto de datos de D variables y N observaciones de cada variable, podemos representar los datos como un conjunto de N vectores pertenecientes a <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mi>D</mi></msup><annotation encoding="application/x-tex">\mathbb{R}^{D}</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mrow><mi>X</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><mspace width="0.222em"></mspace><msub><mi>x</mi><mn>2</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><mspace width="0.222em"></mspace><msub><mi>x</mi><mrow><mi>N</mi><mo>,</mo></mrow></msub><mo stretchy="true" form="postfix">}</mo></mrow><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal">   </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>x</mi><mi>j</mi></msub><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> ϵ</mtext></mrow><mstyle mathvariant="double-struck"><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> R</mtext></mrow></mstyle></mrow><mi>D</mi></msup><annotation encoding="application/x-tex">{X = \left\{ x_{1},\ x_{2},\ldots,\ x_{N,} \right\}\text{\ \ \ }x_{j}\text{\ ϵ}\mathbb{\text{\ R}}}^{D}</annotation></semantics></math></p>
+<p>Donde cada <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>i</mi></msub><annotation encoding="application/x-tex">x_{i}</annotation></semantics></math> está formado por una observación de cada una de las D variables iniciales. El análisis de componentes principales busca encontrar una representación con una dimensión menor pero que sea lo más parecida posible a X. Para lograr esto lo que se hace es realizar una proyección ortogonal de los datos, ya que esto minimiza el vector diferencia con respecto a los datos originales.</p>
+<p>Para ver esto con un ejemplo, supongamos que como se muestra en el gráfico 5 tenemos dos variables iniciales (D=2) <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>z</mi><mn>1</mn></msub><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> y </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>z</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">z_{1}\text{\ y\ }z_{2}</annotation></semantics></math>. Podemos representar gráficamente el par de datos como un vector en <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mn>2</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^{2}</annotation></semantics></math>, entonces tendremos tantos vectores como cantidad de observaciones haya en las series de datos. Nuestro objetivo será entonces encontrar una representación de menor dimensionalidad de este conjunto de datos, en este caso la única dimensionalidad menor a dos es uno, o sea que el objetivo sería ajustar esa serie de vectores a una recta. Existirán entonces incógnitas a resolver, primero cómo representar cada uno de los vectores iniciales de tal forma que haya el menor error posible, y segundo cómo elegir la pendiente de esa recta de tal forma que se minimice el conjunto de los errores. Es decir, minimizar la suma de los segmentos punteados del gráfico 5. Ahora bien, recordando lo visto en proyecciones ortogonales eso da respuesta a la primera de las incógnitas, la forma de representar a cada vector dentro del subespacio U es proyectarlo ortogonalmente, ya que de esta manera se asegura que se minimiza el error de proyección. Queda entonces resolver el problema de encontrar la pendiente de la recta U.</p>
+<p>Una acotación metodológica a hacer en este punto, es que, si bien se habla de la recta U, esta es en realidad un subespacio vectorial. Por lo que no puede ser cualquier recta, debe pasar por el origen de coordenadas. La consecuencia práctica de esto es que a la hora de trabajar con ACP los datos deben tener media igual a cero.</p>
+<p><em>Gráfico 5</em></p>
+<p><img src="media/image7.png" alt="D:\Asset 2.png" width="549" height="522" /></p>
+<p>Para empezar recordemos que cada uno de los vectores <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>j</mi></msub><annotation encoding="application/x-tex">x_{j}</annotation></semantics></math> puede ser representado como una combinación lineal de los vectores base de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mi>D</mi></msup><annotation encoding="application/x-tex">\mathbb{R}^{D}</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>j</mi></msub><mo>=</mo><mspace width="0.222em"></mspace><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>D</mi></munderover><mrow><msub><mi>B</mi><mtext mathvariant="normal">ij</mtext></msub><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> .</mtext></mrow><msub><mi>b</mi><mi>i</mi></msub></mrow><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal">                  </mtext><mspace width="0.333em"></mspace></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">x_{j} = \ \sum_{i = 1}^{D}{B_{\text{ij}}\text{\ .}b_{i}}\text{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\left( 1 \right)</annotation></semantics></math></p>
+<p>Donde <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mi>i</mi></msub><annotation encoding="application/x-tex">b_{i}</annotation></semantics></math> es cada uno de los vectores base y <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>B</mi><mtext mathvariant="normal">ij</mtext></msub><annotation encoding="application/x-tex">B_{\text{ij}}</annotation></semantics></math> es un escalar que representa la coordenada correspondiente al vector <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mi>i</mi></msub><annotation encoding="application/x-tex">b_{i}</annotation></semantics></math>. Cada <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mi>i</mi></msub><annotation encoding="application/x-tex">b_{i}</annotation></semantics></math> va a tener dimensión D<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>1, ya que es un vector base de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mi>D</mi></msup><annotation encoding="application/x-tex">\mathbb{R}^{D}</annotation></semantics></math>. Supondremos para trabajar con ACP que las bases van a ser ortonormales, es decir que <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>D</mi></msubsup><mrow><msup><msub><mi>b</mi><mi>i</mi></msub><mn>2</mn></msup><mo>=</mo><mn>1</mn></mrow></mrow><annotation encoding="application/x-tex">\sum_{i = 1}^{D}{{b_{i}}^{2} = 1}</annotation></semantics></math>.</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>B</mi><mtext mathvariant="normal">ij</mtext></msub><mo>=</mo><msup><msub><mi>x</mi><mi>j</mi></msub><mi>T</mi></msup><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> .</mtext></mrow><msub><mi>b</mi><mi>i</mi></msub><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal">                        </mtext><mspace width="0.333em"></mspace></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">B_{\text{ij}} = {x_{j}}^{T}\text{\ .}b_{i}\text{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\left( 2 \right)</annotation></semantics></math></p>
+<p>La ecuación (2) surge de la deducción de proyección ortogonal para las coordenadas, donde <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">|</mo><msub><mrow><mo stretchy="false" form="prefix">|</mo><mi>b</mi></mrow><mi>i</mi></msub><mo stretchy="false" form="prefix">|</mo><mo stretchy="true" form="postfix">|</mo></mrow><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\left| {|b}_{i}| \right| = 1</annotation></semantics></math> por ser las bases que usaremos para ACP ortonormales. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>B</mi><mtext mathvariant="normal">ij</mtext></msub><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> .</mtext></mrow><msub><mi>b</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">B_{\text{ij}}\text{\ .}b_{i}</annotation></semantics></math> puede ser visto como la proyección ortogonal de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>j</mi></msub><annotation encoding="application/x-tex">x_{j}</annotation></semantics></math> en el subespacio unidimensional generado por <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mi>i</mi></msub><annotation encoding="application/x-tex">b_{i}</annotation></semantics></math> (es la proyección sobre esa recta o eje). Una aclaración a hacer aquí es que la dimensión inicial de los datos es D (se necesitan D coordenadas para representarlos), y lo que se busca es reducir esa dimensión a M minimizando el error en el proceso. La ecuación (2) muestra cual va a ser la magnitud de una de esas M coordenadas, más específicamente la coordenada sobre el subespacio unidimensional generado por el vector <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mi>i</mi></msub><annotation encoding="application/x-tex">b_{i}</annotation></semantics></math>.</p>
+<p>Para el ACP se han hecho 2 supuestos importantes, uno es que los datos deben tener media cero y el otro es que las bases van a ser ortonormales, profundicemos un poco en este último supuesto.</p>
+<p>El hecho que las bases sean ortonormales significa dos cosas, una ya la dijimos y es que la norma de cada vector base es 1 (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>D</mi></msubsup><mrow><msup><msub><mi>b</mi><mi>i</mi></msub><mn>2</mn></msup><mo>=</mo><mn>1</mn></mrow></mrow><annotation encoding="application/x-tex">\sum_{i = 1}^{D}{{b_{i}}^{2} = 1}</annotation></semantics></math>), la otra es que los vectores base van a ser ortogonales entre sí, es decir, su producto punto va a ser igual a cero (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><msub><mi>b</mi><mi>i</mi></msub><mi>T</mi></msup><mi>.</mi><msub><mi>b</mi><mi>j</mi></msub><mo>=</mo><mn>0</mn><mspace width="0.222em"></mspace><mtext mathvariant="normal">para</mtext><mspace width="0.222em"></mspace><mi>t</mi><mi>o</mi><mi>d</mi><mi>o</mi><mspace width="0.222em"></mspace><mi>i</mi><mo>≠</mo><mi>j</mi><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">{b_{i}}^{T}.b_{j} = 0\ \text{para}\ todo\ i \neq j\ </annotation></semantics></math>). Gráficamente esto último significa que los vectores base, que pueden ser vistos como los nuevos ejes de referencia para los datos transformados (ya que es respecto de quienes están dadas las coordenadas) serán perpendiculares entre sí.</p>
+<p>Con esto en mente retomemos la fórmula obtenida para proyecciones ortogonales M-dimensionales:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>x</mi><mo accent="true">̃</mo></mover><mi>j</mi></msub><mo>=</mo><mi>B</mi><mi>.</mi><mi>β</mi><mo>=</mo><msup><mrow><mi>B</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>B</mi><mi>T</mi></msup><mtext mathvariant="normal">.B</mtext><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo>−</mo><mn>1</mn></mrow></msup><mi>B</mi></mrow><mi>T</mi></msup><mi>.</mi><msub><mi>x</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">{\widetilde{x}}_{j} = B.\beta = {B\left( B^{T}\text{.B} \right)^{- 1}B}^{T}.x_{j}</annotation></semantics></math></p>
+<p>Donde <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>x</mi><mo accent="true">̃</mo></mover><mi>j</mi></msub><annotation encoding="application/x-tex">{\widetilde{x}}_{j}</annotation></semantics></math> es la proyección ortogonal del vector <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>j</mi></msub><annotation encoding="application/x-tex">x_{j}</annotation></semantics></math> en el subespacio M-dimensional y B es la matriz formada por el conjunto de los M vectores base de dicho subespacio <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>=</mo><mspace width="0.222em"></mspace><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>b</mi><mn>1</mn></msub><mo>,</mo><mspace width="0.222em"></mspace><msub><mi>b</mi><mn>2</mn></msub><mo>,</mo><mspace width="0.222em"></mspace><mi>…</mi><mo>,</mo><mspace width="0.222em"></mspace><msub><mi>b</mi><mi>M</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">B = \ \left\lbrack b_{1},\ b_{2},\ \ldots,\ b_{M} \right\rbrack</annotation></semantics></math> donde cada <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mi>i</mi></msub><annotation encoding="application/x-tex">b_{i}</annotation></semantics></math> tiene dimensión <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>×</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">D \times 1</annotation></semantics></math>. Analizando la matriz resultante de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>B</mi><mi>T</mi></msup><mtext mathvariant="normal">.B</mtext></mrow><annotation encoding="application/x-tex">B^{T}\text{.B}</annotation></semantics></math> tendremos que:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>B</mi><mi>T</mi></msup><mi>.</mi><mi>B</mi><mo>=</mo><mspace width="0.222em"></mspace><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><msup><msub><mi>b</mi><mn>1</mn></msub><mi>T</mi></msup><mi>.</mi><msub><mi>b</mi><mn>1</mn></msub></mtd><mtd columnalign="center"><mi>…</mi></mtd><mtd columnalign="center"><msup><msub><mi>b</mi><mn>1</mn></msub><mi>T</mi></msup><mi>.</mi><msub><mi>b</mi><mi>M</mi></msub></mtd></mtr><mtr><mtd columnalign="center"><mi>⋮</mi></mtd><mtd columnalign="center"><mi>⋱</mi></mtd><mtd columnalign="center"><mi>⋮</mi></mtd></mtr><mtr><mtd columnalign="center"><msup><msub><mi>b</mi><mi>M</mi></msub><mi>T</mi></msup><mi>.</mi><msub><mi>b</mi><mn>1</mn></msub></mtd><mtd columnalign="center"><mi>…</mi></mtd><mtd columnalign="center"><msup><msub><mi>b</mi><mi>M</mi></msub><mi>T</mi></msup><mi>.</mi><msub><mi>b</mi><mi>M</mi></msub></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mspace width="0.222em"></mspace><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><mn>1</mn></mtd><mtd columnalign="center"><mi>…</mi></mtd><mtd columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center"><mi>⋮</mi></mtd><mtd columnalign="center"><mi>⋱</mi></mtd><mtd columnalign="center"><mi>⋮</mi></mtd></mtr><mtr><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mi>…</mi></mtd><mtd columnalign="center"><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">B^{T}.B = \ \begin{bmatrix}
+{b_{1}}^{T}.b_{1} &amp; \ldots &amp; {b_{1}}^{T}.b_{M} \\
+ \vdots &amp; \ddots &amp; \vdots \\
+{b_{M}}^{T}.b_{1} &amp; \ldots &amp; {b_{M}}^{T}.b_{M} \\
+\end{bmatrix} = \ \begin{bmatrix}
+1 &amp; \ldots &amp; 0 \\
+ \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; \ldots &amp; 1 \\
+\end{bmatrix}</annotation></semantics></math></p>
+<p>Dado que por ser bases ortonormales <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><msub><mi>b</mi><mi>i</mi></msub><mi>T</mi></msup><mi>.</mi><msub><mi>b</mi><mi>j</mi></msub><mo>=</mo><mn>0</mn><mspace width="0.222em"></mspace><mtext mathvariant="normal">para</mtext><mspace width="0.222em"></mspace><mi>t</mi><mi>o</mi><mi>d</mi><mi>o</mi><mspace width="0.222em"></mspace><mi>i</mi><mo>≠</mo><mi>j</mi><mspace width="0.222em"></mspace><mi>y</mi><mspace width="0.222em"></mspace><msup><msub><mi>b</mi><mi>i</mi></msub><mi>T</mi></msup><mi>.</mi><msub><mi>b</mi><mi>i</mi></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">{b_{i}}^{T}.b_{j} = 0\ \text{para}\ todo\ i \neq j\ y\ {b_{i}}^{T}.b_{i} = 1</annotation></semantics></math>, entonces tenemos como resultado la matriz identidad <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>×</mo><mi>M</mi></mrow><annotation encoding="application/x-tex">M \times M</annotation></semantics></math>. Por lo que podemos reescribir <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>x</mi><mo accent="true">̃</mo></mover><mi>j</mi></msub><annotation encoding="application/x-tex">{\widetilde{x}}_{j}</annotation></semantics></math> de la siguiente manera:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>x</mi><mo accent="true">̃</mo></mover><mi>j</mi></msub><mo>=</mo><mi>B</mi><mi>.</mi><mi>β</mi><mo>=</mo><msup><mtext mathvariant="normal">B.B</mtext><mi>T</mi></msup><mi>.</mi><msub><mi>x</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">{\widetilde{x}}_{j} = B.\beta = \text{B.B}^{T}.x_{j}</annotation></semantics></math></p>
+<p>Podemos expresar el problema de reducir la dimensionalidad de la siguiente manera, de acuerdo a lo visto en complemento ortogonal de un subespacio vectorial:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>x</mi><mo accent="true">̃</mo></mover><mi>j</mi></msub><mo>=</mo><munder><mrow></mrow><mtable><mtr><mtd columnalign="center"><mtext mathvariant="normal">Subespacio</mtext></mtd></mtr><mtr><mtd columnalign="center"><mtext mathvariant="normal">principal</mtext></mtd></mtr></mtable></munder><mo>+</mo><munder><mrow></mrow><mrow><mo>=</mo><mn>0</mn></mrow></munder><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">{\widetilde{x}}_{j} = \underset{\begin{matrix}
+\text{Subespacio} \\
+\text{principal} \\
+\end{matrix}}{} + \underset{= 0}{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (3)</annotation></semantics></math></p>
+<p>Donde el primer término es el subespacio sobre el que vamos a proyectar los datos y el segundo término (que representa un subespacio <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mrow><mi>D</mi><mo>−</mo><mi>M</mi></mrow></msup><annotation encoding="application/x-tex">\mathbb{R}^{D - M}</annotation></semantics></math> dimensional que es el complemento ortogonal del subespacio principal) para nuestra proyección es cero ya que haremos la proyección en el subespacio principal.</p>
+<p>Definamos una función <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">J </mtext><mspace width="0.333em"></mspace></mrow><annotation encoding="application/x-tex">\text{J\ }</annotation></semantics></math>que represente el error de hacer la proyección ortogonal de los datos, que como ya dijimos, puede verse como la sumatoria de los vectores diferencia (representados en el gráfico 5 por las líneas punteadas).</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi>J</mi><mo>=</mo><mfrac><mn>1</mn><mi>N</mi></mfrac><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>N</mi></munderover><msup><mrow><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo><msub><mi>x</mi><mi>j</mi></msub><mo>−</mo><msub><mover><mi>x</mi><mo accent="true">̃</mo></mover><mi>j</mi></msub><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo></mrow><mn>2</mn></msup><mo>∖</mo><mi>n</mi></mrow><mrow><mrow><mtext mathvariant="normal">donde </mtext><mspace width="0.333em"></mspace></mrow><msup><mrow><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo><msub><mi>x</mi><mi>j</mi></msub><mo>−</mo><msub><mover><mi>x</mi><mo accent="true">̃</mo></mover><mi>j</mi></msub><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo></mrow><mn>2</mn></msup><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>x</mi><mi>j</mi></msub><mo>−</mo><msub><mover><mi>x</mi><mo accent="true">̃</mo></mover><mi>j</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>T</mi></msup><mi>.</mi><msub><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi></mrow><mi>j</mi></msub><mo>−</mo><msub><mover><mi>x</mi><mo accent="true">̃</mo></mover><mi>j</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">{J = \frac{1}{N}\sum_{j = 1}^{N}{||x_{j} - {\widetilde{x}}_{j}||}^{2}\backslash n}{\text{donde\ }{||x_{j} - {\widetilde{x}}_{j}||}^{2} = \left( x_{j} - {\widetilde{x}}_{j} \right)^{T}.{(x}_{j} - {\widetilde{x}}_{j})}</annotation></semantics></math></p>
+<p>Lo que buscamos aquí es encontrar un subespacio tal que minimice esta función de error. Ahora bien, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>x</mi><mo accent="true">̃</mo></mover><mi>j</mi></msub><annotation encoding="application/x-tex">{\widetilde{x}}_{j}</annotation></semantics></math> va a depender de los valores que tomen <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mtext mathvariant="normal">ij</mtext></msub><annotation encoding="application/x-tex">\beta_{\text{ij}}</annotation></semantics></math> y <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mi>i</mi></msub><annotation encoding="application/x-tex">b_{i}</annotation></semantics></math> entonces:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mfrac><mrow><mi>∂</mi><mi>J</mi></mrow><mrow><mi>∂</mi><msub><mi>β</mi><mtext mathvariant="normal">ij</mtext></msub></mrow></mfrac><mo>=</mo><mfrac><mrow><mi>∂</mi><mi>J</mi></mrow><mrow><mi>∂</mi><msub><mover><mi>x</mi><mo accent="true">̃</mo></mover><mi>j</mi></msub></mrow></mfrac><mi>.</mi><mfrac><mrow><mi>∂</mi><msub><mover><mi>x</mi><mo accent="true">̃</mo></mover><mi>j</mi></msub></mrow><mrow><mi>∂</mi><msub><mi>β</mi><mtext mathvariant="normal">ij</mtext></msub></mrow></mfrac><mo>=</mo><munder><mrow></mrow><mfrac><mrow><mi>∂</mi><mi>J</mi></mrow><mrow><mi>∂</mi><msub><mover><mi>x</mi><mo accent="true">̃</mo></mover><mi>j</mi></msub></mrow></mfrac></munder><mrow><mtext mathvariant="normal">. </mtext><mspace width="0.333em"></mspace></mrow><munder><mrow></mrow><mfrac><mrow><mi>∂</mi><msub><mover><mi>x</mi><mo accent="true">̃</mo></mover><mi>j</mi></msub></mrow><mrow><mi>∂</mi><msub><mi>β</mi><mtext mathvariant="normal">ij</mtext></msub></mrow></mfrac></munder><mo>=</mo><mn>0</mn><mo>∖</mo><mi>n</mi></mrow><mrow><mo>⇒</mo><mspace width="0.222em"></mspace><mfrac><mrow><mi>∂</mi><mi>J</mi></mrow><mrow><mi>∂</mi><msub><mi>β</mi><mtext mathvariant="normal">ij</mtext></msub></mrow></mfrac><mo>=</mo><mfrac><mrow><mo>−</mo><mn>2</mn></mrow><mi>N</mi></mfrac><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>x</mi><mi>j</mi></msub><mo>−</mo><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><munderover><mo>∑</mo><mrow><mi>h</mi><mo>=</mo><mn>1</mn></mrow><mi>M</mi></munderover><mrow><msub><mi>β</mi><mtext mathvariant="normal">hj</mtext></msub><mi>.</mi><msub><mi>b</mi><mi>h</mi></msub></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mi>T</mi></msup><mrow><mtext mathvariant="normal">. </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>b</mi><mi>i</mi></msub><mo>=</mo><mn>0</mn></mrow></mrow><annotation encoding="application/x-tex">{\frac{\partial J}{\partial\beta_{\text{ij}}} = \frac{\partial J}{\partial{\widetilde{x}}_{j}}.\frac{\partial{\widetilde{x}}_{j}}{\partial\beta_{\text{ij}}} = \underset{\frac{\partial J}{\partial{\widetilde{x}}_{j}}}{}\text{.\ }\underset{\frac{\partial{\widetilde{x}}_{j}}{\partial\beta_{\text{ij}}}}{} = 0\backslash n}{\Rightarrow \ \frac{\partial J}{\partial\beta_{\text{ij}}} = \frac{- 2}{N}\left( x_{j} - \ \ \sum_{h = 1}^{M}{\beta_{\text{hj}}.b_{h}} \right)^{T}\text{.\ }b_{i} = 0}</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo><mo stretchy="false" form="prefix">(</mo><msup><msub><mi>x</mi><mi>j</mi></msub><mi>T</mi></msup><mi>.</mi><msub><mi>b</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>−</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mspace width="0.222em"></mspace><munderover><mo>∑</mo><mrow><mi>h</mi><mo>=</mo><mn>1</mn></mrow><mi>M</mi></munderover><mrow><msub><mi>β</mi><mtext mathvariant="normal">hj</mtext></msub><mi>.</mi><msub><mi>b</mi><mi>h</mi></msub></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mi>T</mi></msup><mrow><mtext mathvariant="normal">. </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>b</mi><mi>i</mi></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\Rightarrow ({x_{j}}^{T}.b_{i}) - \left( \ \sum_{h = 1}^{M}{\beta_{\text{hj}}.b_{h}} \right)^{T}\text{.\ }b_{i} = 0</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo><mo stretchy="false" form="prefix">(</mo><msup><msub><mi>x</mi><mi>j</mi></msub><mi>T</mi></msup><mi>.</mi><msub><mi>b</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>−</mo><msub><mi>β</mi><mtext mathvariant="normal">ij</mtext></msub><mi>.</mi><munder><mrow></mrow><mrow><mo>=</mo><mn>1</mn></mrow></munder><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\Rightarrow ({x_{j}}^{T}.b_{i}) - \beta_{\text{ij}}.\underset{= 1}{} = 0</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo><msub><mi>β</mi><mtext mathvariant="normal">ij</mtext></msub><mo>=</mo><mspace width="0.222em"></mspace><msup><msub><mi>x</mi><mi>j</mi></msub><mi>T</mi></msup><mi>.</mi><msub><mi>b</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\Rightarrow \beta_{\text{ij}} = \ {x_{j}}^{T}.b_{i}</annotation></semantics></math></p>
+<p>Donde el segundo término sale de derivar (3) respecto a <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mtext mathvariant="normal">ij</mtext></msub><annotation encoding="application/x-tex">\beta_{\text{ij}}</annotation></semantics></math> suponiendo M=1, es decir para la proyección unidimensional sobre el subespacio generado por el vector <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mi>i</mi></msub><annotation encoding="application/x-tex">b_{i}</annotation></semantics></math>. En el segundo paso lo que se hace es usar (3) donde <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>x</mi><mo accent="true">̃</mo></mover><mi>j</mi></msub><annotation encoding="application/x-tex">{\widetilde{x}}_{j}</annotation></semantics></math> es la proyección de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>j</mi></msub><annotation encoding="application/x-tex">x_{j}</annotation></semantics></math> en el subespacio principal, por eso la sumatoria solo llega hasta M. En la línea cuatro se simplificó la sumatoria ya que el producto punto resultante va a ser cero para todos los términos donde <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>≠</mo><mi>h</mi></mrow><annotation encoding="application/x-tex">i \neq h</annotation></semantics></math> por la propiedad vista de bases ortonormales, y también por esto es que podemos decir que <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><msub><mi>b</mi><mi>i</mi></msub><mi>T</mi></msup><mrow><mtext mathvariant="normal">. </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>b</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">{b_{i}}^{T}\text{.\ }b_{i}</annotation></semantics></math>=1.</p>
+<p>Observando la expresión a la que llegamos vemos que coincide con (2) que era la que habíamos obtenido para proyecciones ortogonales. Entonces, lo que estamos diciendo aquí es simplemente que las coordenadas <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mtext mathvariant="normal">ij</mtext></msub><annotation encoding="application/x-tex">\beta_{\text{ij}}</annotation></semantics></math> que minimizan el error J son las que nos proyectan ortogonalmente el vector <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>j</mi></msub><annotation encoding="application/x-tex">x_{j}</annotation></semantics></math> en el eje generado por <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mi>i</mi></msub><annotation encoding="application/x-tex">b_{i}</annotation></semantics></math>.</p>
+<p>Visto en términos del gráfico 5 queremos decidir la pendiente de la recta U. Para simplificar la resolución matemática primero re expresaremos la función J para dejarla en función de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mi>i</mi></msub><annotation encoding="application/x-tex">b_{i}</annotation></semantics></math>. Partiendo de la definición de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>x</mi><mo accent="true">̃</mo></mover><mi>j</mi></msub><annotation encoding="application/x-tex">{\widetilde{x}}_{j}</annotation></semantics></math> en (3) y reemplazando <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mtext mathvariant="normal">ij</mtext></msub><annotation encoding="application/x-tex">\beta_{\text{ij}}</annotation></semantics></math> de acuerdo a (2) podemos expresar:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>x</mi><mo accent="true">̃</mo></mover><mi>j</mi></msub><mo>=</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>M</mi></munderover><mrow><msub><mi>β</mi><mtext mathvariant="normal">ij</mtext></msub><mi>.</mi><msub><mi>b</mi><mi>i</mi></msub></mrow></mrow><annotation encoding="application/x-tex">{\widetilde{x}}_{j} = \sum_{i = 1}^{M}{\beta_{\text{ij}}.b_{i}}</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>x</mi><mo accent="true">̃</mo></mover><mi>j</mi></msub><mo>=</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>M</mi></munderover><mrow><msup><msub><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi></mrow><mi>j</mi></msub><mi>T</mi></msup><mi>.</mi><msub><mi>b</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo><mi>.</mi><msub><mi>b</mi><mi>i</mi></msub></mrow></mrow><annotation encoding="application/x-tex">{\widetilde{x}}_{j} = \sum_{i = 1}^{M}{{{(x}_{j}}^{T}.b_{i}).b_{i}}</annotation></semantics></math></p>
+<p>Teniendo en cuenta esta última expresión obtenida, y expresando <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>j</mi></msub><annotation encoding="application/x-tex">x_{j}</annotation></semantics></math> de la ecuación (1) como la suma del subespacio principal más el complemento ortogonal:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>j</mi></msub><mo>=</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>M</mi></munderover><mrow><msup><msub><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi></mrow><mi>j</mi></msub><mi>T</mi></msup><mi>.</mi><msub><mi>b</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo><mi>.</mi><msub><mi>b</mi><mi>i</mi></msub></mrow><mspace width="0.222em"></mspace><mo>+</mo><mspace width="0.222em"></mspace><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mi>M</mi><mo>+</mo><mn>1</mn></mrow><mi>D</mi></munderover><mrow><msup><msub><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi></mrow><mi>j</mi></msub><mi>T</mi></msup><mi>.</mi><msub><mi>b</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo><mi>.</mi><msub><mi>b</mi><mi>i</mi></msub></mrow></mrow><annotation encoding="application/x-tex">x_{j} = \sum_{i = 1}^{M}{{{(x}_{j}}^{T}.b_{i}).b_{i}}\  + \ \sum_{i = M + 1}^{D}{{{(x}_{j}}^{T}.b_{i}).b_{i}}</annotation></semantics></math></p>
+<p>Podemos entonces re escribir nuestro vector diferencia como:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>j</mi></msub><mo>−</mo><msub><mover><mi>x</mi><mo accent="true">̃</mo></mover><mi>j</mi></msub><mo>=</mo><mspace width="0.222em"></mspace><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mi>M</mi><mo>+</mo><mn>1</mn></mrow><mi>D</mi></munderover><mrow><msup><msub><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi></mrow><mi>j</mi></msub><mi>T</mi></msup><mi>.</mi><msub><mi>b</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo><mi>.</mi><msub><mi>b</mi><mi>i</mi></msub></mrow></mrow><annotation encoding="application/x-tex">x_{j} - {\widetilde{x}}_{j} = \ \sum_{i = M + 1}^{D}{{{(x}_{j}}^{T}.b_{i}).b_{i}}</annotation></semantics></math></p>
+<p>Reemplazando esto en nuestra función J usando el hecho de que el producto punto <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><msub><mi>x</mi><mi>j</mi></msub><mi>T</mi></msup><mi>.</mi><msub><mi>b</mi><mi>i</mi></msub><mo>=</mo><msup><msub><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> b</mtext></mrow><mi>i</mi></msub><mi>T</mi></msup><mi>.</mi><msub><mi>x</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">{x_{j}}^{T}.b_{i} = {\text{\ b}_{i}}^{T}.x_{j}</annotation></semantics></math> se puede expresar vectorialmente de cualquiera de esas dos formas:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mo>=</mo><mfrac><mn>1</mn><mi>N</mi></mfrac><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>N</mi></munderover><msup><mrow><mo stretchy="true" form="prefix">∥</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mi>M</mi><mo>+</mo><mn>1</mn></mrow><mi>D</mi></munderover><mrow><mo stretchy="false" form="prefix">(</mo><msup><msub><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> b</mtext></mrow><mi>i</mi></msub><mi>T</mi></msup><mi>.</mi><msub><mi>x</mi><mi>j</mi></msub><mo stretchy="false" form="postfix">)</mo><mi>.</mi><msub><mi>b</mi><mi>i</mi></msub></mrow><mo stretchy="true" form="postfix">∥</mo></mrow><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">J = \frac{1}{N}\sum_{j = 1}^{N}\left\| \sum_{i = M + 1}^{D}{({\text{\ b}_{i}}^{T}.x_{j}).b_{i}} \right\|^{2}</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo><mi>J</mi><mo>=</mo><mfrac><mn>1</mn><mi>N</mi></mfrac><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>N</mi></munderover><mrow><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mi>M</mi><mo>+</mo><mn>1</mn></mrow><mi>D</mi></munderover><mrow><msup><mrow><mo stretchy="true" form="prefix">∥</mo><msup><msub><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> b</mtext></mrow><mi>i</mi></msub><mi>T</mi></msup><mi>.</mi><msub><mi>x</mi><mi>j</mi></msub><mo stretchy="true" form="postfix">∥</mo></mrow><mn>2</mn></msup><mi>.</mi><munder><mrow></mrow><mrow><mo>=</mo><mn>1</mn></mrow></munder></mrow></mrow></mrow><annotation encoding="application/x-tex">\Rightarrow J = \frac{1}{N}\sum_{j = 1}^{N}{\sum_{i = M + 1}^{D}{\left\| {\text{\ b}_{i}}^{T}.x_{j} \right\|^{2}.\underset{= 1}{}}}</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo><mi>J</mi><mo>=</mo><mfrac><mn>1</mn><mi>N</mi></mfrac><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>N</mi></munderover><mrow><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mi>M</mi><mo>+</mo><mn>1</mn></mrow><mi>D</mi></munderover><mrow><mo stretchy="false" form="prefix">(</mo><msup><msub><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> b</mtext></mrow><mi>i</mi></msub><mi>T</mi></msup><mi>.</mi><msub><mi>x</mi><mi>j</mi></msub></mrow><mo stretchy="false" form="postfix">)</mo><mi>.</mi><mo stretchy="false" form="prefix">(</mo><msup><msub><mi>x</mi><mi>j</mi></msub><mi>T</mi></msup><mi>.</mi><msub><mi>b</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\Rightarrow J = \frac{1}{N}\sum_{j = 1}^{N}{\sum_{i = M + 1}^{D}{({\text{\ b}_{i}}^{T}.x_{j}}).({x_{j}}^{T}.b_{i})}</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo><mi>J</mi><mo>=</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mi>M</mi><mo>+</mo><mn>1</mn></mrow><mi>D</mi></munderover><mrow><msup><msub><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> b</mtext></mrow><mi>i</mi></msub><mi>T</mi></msup><mi>.</mi></mrow><munder><mrow></mrow><mi>S</mi></munder><mi>.</mi><msub><mi>b</mi><mi>i</mi></msub><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\Rightarrow J = \sum_{i = M + 1}^{D}{{\text{\ b}_{i}}^{T}.}\underset{S}{}.b_{i}\ \ \ \ \ \ \ \ \ \ \ \ \ \ (4)</annotation></semantics></math></p>
+<p>Expliquemos brevemente el proceso matemático precedente. En la segunda línea se saca la sumatoria fuera de la norma ya que va a ser lo mismo sacar la suma de los vectores y sacarle la norma que sacar la norma de todos los vectores y sumar dichas normas, también se hizo uso de que la norma de cada vector base es igual a 1 por bases ortonormales. En la tercera línea se usó la definición de norma para expresarla como producto punto. En la cuarta línea se saca “afuera” la sumatoria que depende de <em>i</em> y quedan dentro de la sumatoria con subíndice j solo los términos que dependen de j.</p>
+<p>Analizando la matriz que llamamos S, va a ser la suma de N matrices <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>×</mo><mi>D</mi></mrow><annotation encoding="application/x-tex">D \times D</annotation></semantics></math>. Por lo que cada elemento de la matriz resultante va a ser la suma de ese elemento de cada una de las N matrices de la sumatoria. Adicionalmente tenemos que multiplicar cada uno de esos elementos de la matriz por <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mn>1</mn><mi>N</mi></mfrac><annotation encoding="application/x-tex">\frac{1}{N}</annotation></semantics></math>. Podemos ver entonces, que ya que los datos tienen media igual a cero, esta matriz es la matriz de varianzas y covarianzas (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>×</mo><mi>D</mi></mrow><annotation encoding="application/x-tex">D \times D</annotation></semantics></math>) de las D variables iniciales. Si los datos estuvieran estandarizados (adicionalmente estuvieran divididos por su desviación estándar) la matriz que obtendríamos aquí sería la matriz de correlaciones.</p>
+<p>Supongamos el caso en que tenemos dos variables iniciales y queremos reducir los datos a una sola componente principal (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mn>2</mn></msup><mstyle mathvariant="double-struck"><mo>→</mo><mi>ℝ</mi></mstyle></mrow><annotation encoding="application/x-tex">\mathbb{R}^{2}\mathbb{\rightarrow R}</annotation></semantics></math>). Si planteamos un lagrangiano para obtener la condición de minimización a partir de la fórmula obtenida en (4) y teniendo en cuenta la restricción de bases ortonormales quedará entonces:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mo>=</mo><msup><msub><mi>b</mi><mn>2</mn></msub><mi>T</mi></msup><mtext mathvariant="normal">.S.</mtext><msub><mi>b</mi><mn>2</mn></msub><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal">            s.a. </mtext><mspace width="0.333em"></mspace></mrow><msup><msub><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal">   b</mtext></mrow><mn>2</mn></msub><mi>T</mi></msup><mi>.</mi><msub><mi>b</mi><mn>2</mn></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">J = {b_{2}}^{T}\text{.S.}b_{2}\text{\ \ \ \ \ \ \ \ \ \ \ \ s.a.\ }{\text{\ \ \ b}_{2}}^{T}.b_{2} = 1</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>=</mo><msup><msub><mi>b</mi><mn>2</mn></msub><mi>T</mi></msup><mtext mathvariant="normal">.S.</mtext><msub><mi>b</mi><mn>2</mn></msub><mo>+</mo><mi>λ</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><msup><msub><mi>b</mi><mn>2</mn></msub><mi>T</mi></msup><mi>.</mi><msub><mi>b</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">L = {b_{2}}^{T}\text{.S.}b_{2} + \lambda(1 - {b_{2}}^{T}.b_{2})</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>∂</mi><mi>L</mi></mrow><mrow><mi>∂</mi><mi>λ</mi></mrow></mfrac><mo>=</mo><mn>1</mn><mo>−</mo><msup><msub><mi>b</mi><mn>2</mn></msub><mi>T</mi></msup><mi>.</mi><msub><mi>b</mi><mn>2</mn></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\frac{\partial L}{\partial\lambda} = 1 - {b_{2}}^{T}.b_{2} = 0</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>∂</mi><mi>L</mi></mrow><mrow><mi>∂</mi><msub><mi>b</mi><mn>2</mn></msub></mrow></mfrac><mo>=</mo><msup><msub><mrow><mn>2</mn><mi>.</mi><mi>b</mi></mrow><mn>2</mn></msub><mi>T</mi></msup><mi>.</mi><mi>S</mi><mo>−</mo><mn>2</mn><mi>.</mi><mi>λ</mi><mi>.</mi><msup><msub><mi>b</mi><mn>2</mn></msub><mi>T</mi></msup><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\frac{\partial L}{\partial b_{2}} = {{2.b}_{2}}^{T}.S - 2.\lambda.{b_{2}}^{T} = 0</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo><msup><msub><mi>b</mi><mn>2</mn></msub><mi>T</mi></msup><mi>.</mi><mi>S</mi><mo>=</mo><mi>λ</mi><mi>.</mi><msup><msub><mi>b</mi><mn>2</mn></msub><mi>T</mi></msup></mrow><annotation encoding="application/x-tex">\Rightarrow {b_{2}}^{T}.S = \lambda.{b_{2}}^{T}</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo><mi>S</mi><mi>.</mi><msub><mi>b</mi><mn>2</mn></msub><mo>=</mo><mi>λ</mi><mi>.</mi><msub><mi>b</mi><mn>2</mn></msub><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix">(</mo><mn>5</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\Rightarrow S.b_{2} = \lambda.b_{2}\ \ \ \ \ \ \ \ \ \ (5)</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mo>=</mo><msup><msub><mi>b</mi><mn>2</mn></msub><mi>T</mi></msup><mi>.</mi><msub><mi>b</mi><mn>2</mn></msub><mspace width="0.222em"></mspace><mi>.</mi><mi>λ</mi><mo>=</mo><mi>λ</mi></mrow><annotation encoding="application/x-tex">J = {b_{2}}^{T}.b_{2}\ .\lambda = \lambda</annotation></semantics></math></p>
+<p>Donde en la cuarta línea se usó la regla de derivada multivariante para derivar respecto a <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mn>2</mn></msub><annotation encoding="application/x-tex">b_{2}</annotation></semantics></math>. En la sexta línea por ser S una matriz simétrica puede conmutar de esa forma la multiplicación. En tanto que en la última línea solo reemplaza el resultado anterior en la función J.</p>
+<p>Analicemos la expresión (5), lo que tenemos ahí es un problema de eigenvalores y eigenvectores. Para recordar, dada una matriz A (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">n \times n</annotation></semantics></math>), <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>v</mi><annotation encoding="application/x-tex">v</annotation></semantics></math> será eigenvector de A si se cumple que:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>.</mi><mi>v</mi><mo>=</mo><mi>λ</mi><mi>.</mi><mi>v</mi></mrow><annotation encoding="application/x-tex">A.v = \lambda.v</annotation></semantics></math></p>
+<p>Donde <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math> es un escalar y es el eigenvalor de la matriz A correspondiente a ese eigenvector. Para minimizar entonces J lo que se debe hacer es buscar los eigenvectores de la matriz S y elegir como subespacio principal el eigenvector que tenga el <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>. De esta manera su complemento ortogonal que será el omitido tendrá el <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mo>=</mo><mi>λ</mi></mrow><annotation encoding="application/x-tex">J = \lambda</annotation></semantics></math> más chico.</p>
+<p>Notar que los eigenvectores serán los vectores base, por lo cual por bases ortonormales serán ortogonales entre sí, y el eigenvector con el eigenvalor más alto es un vector que apunta en la dirección en la que los datos tienen más variación (y el eigenvalor va a ser el valor de esa variación).</p>
+<p>Si ampliamos esta lógica para el caso D-dimensional tendremos que:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">S.</mtext><msub><mi>b</mi><mi>j</mi></msub><mo>=</mo><msub><mi>λ</mi><mi>j</mi></msub><mi>.</mi><msub><mi>b</mi><mi>j</mi></msub><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mi>c</mi><mi>o</mi><mi>n</mi><mspace width="0.222em"></mspace><mi>j</mi><mo>=</mo><mi>M</mi><mo>+</mo><mn>1</mn><mo>,</mo><mi>M</mi><mo>+</mo><mn>2</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>D</mi></mrow><annotation encoding="application/x-tex">\text{S.}b_{j} = \lambda_{j}.b_{j}\ \ con\ j = M + 1,M + 2,\ldots,D</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mo>=</mo><mspace width="0.222em"></mspace><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mi>M</mi><mo>+</mo><mn>1</mn></mrow><mi>D</mi></munderover><msub><mi>λ</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">J = \ \sum_{j = M + 1}^{D}\lambda_{j}</annotation></semantics></math></p>
+<p>Es decir, minimizamos J eligiendo los D-M eigenvalores más chicos y, por lo tanto, proyectando los datos en el subespacio formado por los vectores correspondientes a los M eigenvalores mayores.</p>
+<p>Algo a remarcar en este punto, es el hecho de que vamos a tener D eigenvalores (ya que la dimensión de la matriz S es DxD), de los cuales elegiremos los M mayores y descartaremos los D-M más chicos.</p>
+<p>Analicemos entonces los resultados obtenidos al proyectar los vectores ortogonalmente sobre el subespacio principal <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><msup><msub><mi>x</mi><mi>j</mi></msub><mi>T</mi></msup><mi>.</mi><msub><mi>b</mi><mi>i</mi></msub><mo>=</mo><mspace width="0.222em"></mspace><msub><mi>β</mi><mtext mathvariant="normal">ij</mtext></msub></mrow><annotation encoding="application/x-tex">\ {x_{j}}^{T}.b_{i} = \ \beta_{\text{ij}}</annotation></semantics></math>. Notando esto matricialmente para el caso de N vectores (recordemos que tenemos N vectores porque tenemos N observaciones) tendríamos:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mrow></mrow><mrow><mi>N</mi><mo>×</mo><mi>D</mi></mrow></munder><mo>×</mo><munder><mrow></mrow><mrow><mi>D</mi><mo>×</mo><mi>M</mi></mrow></munder><mo>=</mo><munder><mrow></mrow><mrow><mi>N</mi><mo>×</mo><mi>M</mi></mrow></munder></mrow><annotation encoding="application/x-tex">\underset{N \times D}{} \times \underset{D \times M}{} = \underset{N \times M}{}</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><msub><mi>x</mi><mn>11</mn></msub></mtd><mtd columnalign="center"><mi>…</mi></mtd><mtd columnalign="center"><msub><mi>x</mi><mrow><mi>D</mi><mn>1</mn></mrow></msub></mtd></mtr><mtr><mtd columnalign="center"><mi>⋮</mi></mtd><mtd columnalign="center"><mi>⋱</mi></mtd><mtd columnalign="center"><mi>⋮</mi></mtd></mtr><mtr><mtd columnalign="center"><msub><mi>x</mi><mrow><mn>1</mn><mi>N</mi></mrow></msub></mtd><mtd columnalign="center"><mi>…</mi></mtd><mtd columnalign="center"><msub><mi>x</mi><mtext mathvariant="normal">DN</mtext></msub></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>×</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><msub><mi>b</mi><mn>11</mn></msub></mtd><mtd columnalign="center"><mi>…</mi></mtd><mtd columnalign="center"><msub><mi>b</mi><mrow><mi>M</mi><mn>1</mn></mrow></msub></mtd></mtr><mtr><mtd columnalign="center"><mi>⋮</mi></mtd><mtd columnalign="center"><mi>⋱</mi></mtd><mtd columnalign="center"><mi>⋮</mi></mtd></mtr><mtr><mtd columnalign="center"><msub><mi>b</mi><mrow><mn>1</mn><mi>D</mi></mrow></msub></mtd><mtd columnalign="center"><mi>…</mi></mtd><mtd columnalign="center"><msub><mi>b</mi><mtext mathvariant="normal">MD</mtext></msub></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><msub><mi>z</mi><mn>11</mn></msub></mtd><mtd columnalign="center"><mi>…</mi></mtd><mtd columnalign="center"><msub><mi>z</mi><mrow><mi>M</mi><mn>1</mn></mrow></msub></mtd></mtr><mtr><mtd columnalign="center"><mi>⋮</mi></mtd><mtd columnalign="center"><mi>⋱</mi></mtd><mtd columnalign="center"><mi>⋮</mi></mtd></mtr><mtr><mtd columnalign="center"><msub><mi>z</mi><mrow><mn>1</mn><mi>N</mi></mrow></msub></mtd><mtd columnalign="center"><mi>…</mi></mtd><mtd columnalign="center"><msub><mi>z</mi><mtext mathvariant="normal">MN</mtext></msub></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">\begin{bmatrix}
+x_{11} &amp; \ldots &amp; x_{D1} \\
+ \vdots &amp; \ddots &amp; \vdots \\
+x_{1N} &amp; \ldots &amp; x_{\text{DN}} \\
+\end{bmatrix} \times \begin{bmatrix}
+b_{11} &amp; \ldots &amp; b_{M1} \\
+ \vdots &amp; \ddots &amp; \vdots \\
+b_{1D} &amp; \ldots &amp; b_{\text{MD}} \\
+\end{bmatrix} = \begin{bmatrix}
+z_{11} &amp; \ldots &amp; z_{M1} \\
+ \vdots &amp; \ddots &amp; \vdots \\
+z_{1N} &amp; \ldots &amp; z_{\text{MN}} \\
+\end{bmatrix}</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>z</mi><mn>11</mn></msub><mo>=</mo><mspace width="0.222em"></mspace><msub><mi>x</mi><mn>11</mn></msub><mrow><mtext mathvariant="normal">. </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>b</mi><mn>11</mn></msub><mo>+</mo><mi>…</mi><mo>+</mo><msub><mrow><msub><mi>X</mi><mrow><mi>D</mi><mn>1</mn></mrow></msub><mtext mathvariant="normal">.b</mtext></mrow><mrow><mn>1</mn><mi>D</mi></mrow></msub></mrow><annotation encoding="application/x-tex">z_{11} = \ x_{11}\text{.\ }b_{11} + \ldots + {X_{D1}\text{.b}}_{1D}</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>z</mi><mrow><mn>1</mn><mi>N</mi></mrow></msub><mo>=</mo><mspace width="0.222em"></mspace><msub><mi>x</mi><mrow><mn>1</mn><mi>N</mi></mrow></msub><mrow><mtext mathvariant="normal">. </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>b</mi><mn>11</mn></msub><mo>+</mo><mi>…</mi><mo>+</mo><msub><mrow><msub><mi>X</mi><mtext mathvariant="normal">DN</mtext></msub><mtext mathvariant="normal">.b</mtext></mrow><mrow><mn>1</mn><mi>D</mi></mrow></msub></mrow><annotation encoding="application/x-tex">z_{1N} = \ x_{1N}\text{.\ }b_{11} + \ldots + {X_{\text{DN}}\text{.b}}_{1D}</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Z</mi><mn>1</mn></msub><mo>=</mo><mspace width="0.222em"></mspace><mi>X</mi><mi>.</mi><mspace width="0.222em"></mspace><msub><mi>b</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">Z_{1} = \ X.\ b_{1}</annotation></semantics></math></p>
+<p>Cada una de las N observaciones de la nueva variable <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>z</mi><mn>1</mn></msub><annotation encoding="application/x-tex">z_{1}</annotation></semantics></math> va a ser una combinación lineal de las D variables iniciales, combinada usando como coeficientes los valores del eigenvector <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mn>1</mn></msub><annotation encoding="application/x-tex">b_{1}</annotation></semantics></math>. Cada columna de la matriz Z va a ser una de las nuevas M variables, que no es ni más ni menos que una de las M coordenadas vistas desde el punto de vista geométrico de las proyecciones ortogonales.</p>
+<p>Mirando los resultados obtenidos para proyecciones ortogonales M-dimensionales, tenemos que <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>x</mi><mo accent="true">̃</mo></mover><mi>j</mi></msub><mo>=</mo><mi>B</mi><mi>.</mi><mi>β</mi></mrow><annotation encoding="application/x-tex">{\widetilde{x}}_{j} = B.\beta</annotation></semantics></math>. La única aclaración metodológica que corresponde hacer es que aquí estamos viendo cada uno de los N vectores horizontalmente como una de las filas de la matriz <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>X</mi><mo accent="true">̃</mo></mover><annotation encoding="application/x-tex">\widetilde{X}</annotation></semantics></math>, es decir que cada fila podría ser expresada de acuerdo a la ecuación de proyecciones ortogonales de la siguiente manera <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mrow></mrow><mrow><mn>1</mn><mi>x</mi><mi>D</mi></mrow></munder><mo>=</mo><munder><mrow></mrow><mrow><mn>1</mn><mi>x</mi><mi>M</mi></mrow></munder><mi>.</mi><munder><mrow></mrow><mtext mathvariant="normal">MxD</mtext></munder></mrow><annotation encoding="application/x-tex">\underset{1xD}{} = \underset{1xM}{}.\underset{\text{MxD}}{}</annotation></semantics></math>. Expresando esto matricialmente para el caso de N vectores:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mrow></mrow><mrow><mi>N</mi><mo>×</mo><mi>M</mi></mrow></munder><mo>×</mo><munder><msup><mrow></mrow><mi>T</mi></msup><mrow><mi>M</mi><mo>×</mo><mi>D</mi></mrow></munder><mo>=</mo><mspace width="0.222em"></mspace><munder><mrow></mrow><mrow><mi>N</mi><mo>×</mo><mi>D</mi></mrow></munder></mrow><annotation encoding="application/x-tex">\underset{N \times M}{} \times \underset{M \times D}{{}^{T}} = \ \underset{N \times D}{}</annotation></semantics></math></p>
+<p>Esto lo que nos está diciendo es que podemos “reconstruir” nuestros datos originales usando la matriz B como decodificador, la pérdida de información que vamos a tener va a ser la que perdimos al omitir el subespacio D-M dimensional complementario al subespacio principal.</p>
+<p>Retomemos la expresión <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Z</mi><mn>1</mn></msub><mo>=</mo><mspace width="0.222em"></mspace><mi>X</mi><mi>.</mi><mspace width="0.222em"></mspace><msub><mi>b</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">Z_{1} = \ X.\ b_{1}</annotation></semantics></math> y calculemos la esperanza y la varianza de nuestra nueva variable:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>Z</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>E</mi><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mtext mathvariant="normal">X. </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>b</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.222em"></mspace><mo>=</mo><mi>E</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mtext mathvariant="normal">. </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>b</mi><mn>1</mn></msub><mo>=</mo><mn>0</mn><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">E\left( Z_{1} \right) = E\left( \text{X.\ }b_{1} \right)\  = E\left( X \right)\text{.\ }b_{1} = 0\ </annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">VAR</mtext><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>Z</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mspace width="0.222em"></mspace><mfrac><mn>1</mn><mi>N</mi></mfrac><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> .</mtext></mrow><msup><msub><mi>Z</mi><mn>1</mn></msub><mi>T</mi></msup><mi>.</mi><msub><mi>Z</mi><mn>1</mn></msub><mo>=</mo><mspace width="0.222em"></mspace><mfrac><mn>1</mn><mi>N</mi></mfrac><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> . </mtext><mspace width="0.333em"></mspace></mrow><msup><msub><mi>b</mi><mn>1</mn></msub><mi>T</mi></msup><mrow><mtext mathvariant="normal">. </mtext><mspace width="0.333em"></mspace></mrow><msup><mi>X</mi><mi>T</mi></msup><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> . X . </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>b</mi><mn>1</mn></msub><mo>=</mo><mspace width="0.222em"></mspace><msup><msub><mi>b</mi><mn>1</mn></msub><mi>T</mi></msup><mrow><mtext mathvariant="normal">. </mtext><mspace width="0.333em"></mspace></mrow><munder><mrow></mrow><mi>S</mi></munder><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> . </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>b</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">\text{VAR}\left( Z_{1} \right) = \ \frac{1}{N}\text{\ .}{Z_{1}}^{T}.Z_{1} = \ \frac{1}{N}\text{\ .\ }{b_{1}}^{T}\text{.\ }X^{T}\text{\ .\ X\ .\ }b_{1} = \ {b_{1}}^{T}\text{.\ }\underset{S}{}\text{\ .\ }b_{1}</annotation></semantics></math></p>
+<p>Donde en la primera ecuación se usó el hecho de que nuestros datos iniciales deben estar centrados respecto a su media.</p>
+<p>Si observamos la expresión obtenida para la varianza de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>Z</mi><mn>1</mn></msub><annotation encoding="application/x-tex">Z_{1}</annotation></semantics></math> vemos que es igual a la obtenida cuando buscábamos cada una de las D-M dimensiones omitidas, comparando ambos resultados tenemos que:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><msub><mi>b</mi><mn>1</mn></msub><mi>T</mi></msup><mi>.</mi><mi>S</mi><mo>=</mo><mi>λ</mi><mi>.</mi><msup><msub><mi>b</mi><mn>1</mn></msub><mi>T</mi></msup><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mo>⇒</mo><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><munder><mrow></mrow><mrow><mtext mathvariant="normal">VAR</mtext><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>Z</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow></munder><mo>=</mo><mspace width="0.222em"></mspace><mi>λ</mi><mi>.</mi><munder><mrow></mrow><mrow><mo>=</mo><mn>1</mn></mrow></munder><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mo>⇒</mo><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mi>V</mi><mi>A</mi><mi>R</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>Z</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mspace width="0.222em"></mspace><mi>λ</mi></mrow><annotation encoding="application/x-tex">{b_{1}}^{T}.S = \lambda.{b_{1}}^{T}\ \ \  \Rightarrow \ \ \ \ \underset{\text{VAR}\left( Z_{1} \right)}{} = \ \lambda.\underset{= 1}{}\ \ \ \ \ \  \Rightarrow \ \ \ \ \ \ \ \ VAR\left( Z_{1} \right) = \ \lambda</annotation></semantics></math></p>
+<p>Interpretando esta última expresión es que podemos decir que buscamos retener la mayor cantidad de varianza posible, o que vamos a elegir los M componentes principales con mayor varianza. Esto es porque <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>Z</mi><mn>1</mn></msub><annotation encoding="application/x-tex">Z_{1}</annotation></semantics></math> es la proyección ortogonal de nuestros datos sobre el eje generado por el vector <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mn>1</mn></msub><annotation encoding="application/x-tex">b_{1}</annotation></semantics></math>, y este eje es elegido de tal forma de maximizar la varianza de nuestros datos sobre él. Este enfoque nos permite compatibilizar la idea de que al retener la mayor cantidad de varianza posible estamos manteniendo la mayor cantidad de información, y es porque al mantener la mayor cantidad de varianza estamos minimizando el error de proyección de nuestros datos en sobre ese subespacio o eje.</p>
+<p>Una medida de la variabilidad original de los datos podría ser la suma de las D varianzas de las variables originales X. Por teoría de diagonalización (cuya demostración escapa al alcance de este trabajo) podemos decir que:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Traza</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mi>S</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>T</mi><mi>r</mi><mi>a</mi><mi>z</mi><mi>a</mi><mo stretchy="false" form="prefix">(</mo><msup><mi>P</mi><mi>′</mi></msup><mi>.</mi><mi>V</mi><mspace width="0.222em"></mspace><mi>.</mi><mi>P</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>D</mi></munderover><mrow><mspace width="0.222em"></mspace><msub><mi>λ</mi><mi>j</mi></msub></mrow></mrow><annotation encoding="application/x-tex">\text{Traza}\left( S \right) = Traza(P^{&#39;}.V\ .P) = \sum_{j = 1}^{D}{\ \lambda_{j}}</annotation></semantics></math></p>
+<p>Por otra parte, la traza de S (la suma de todos los elementos de su diagonal principal) va a ser la suma de las D varianzas iniciales, que es como dijimos nuestra variabilidad total de los datos iniciales. Adicionalmente si las variables iniciales están estandarizadas esta varianza total será igual a D (cada una de las D variables iniciales tiene var=1). Tenemos entonces aquí una relación importante entre la varianza original y la varianza retenida después del ACP. Por ejemplo, si retuviéramos todas las componentes principales (M=D) no perderíamos varianza, lo que puede ser visto como que no habría perdida alguna de información.</p>
+<p>Podríamos decir que la proporción o porcentaje de variabilidad que explica cada componente va a ser:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>%</mi><mspace width="0.222em"></mspace><mi>d</mi><mi>e</mi><mspace width="0.222em"></mspace><mi>V</mi><mi>a</mi><mi>r</mi><mspace width="0.222em"></mspace><mi>e</mi><mi>x</mi><mi>p</mi><mi>l</mi><mi>i</mi><mi>c</mi><mi>a</mi><mi>d</mi><mi>o</mi><mspace width="0.222em"></mspace><mi>p</mi><mi>o</mi><mi>r</mi><mspace width="0.222em"></mspace><msub><mi>Z</mi><mi>j</mi></msub><mo>=</mo><mspace width="0.222em"></mspace><mfrac><msub><mi>λ</mi><mi>j</mi></msub><mrow><mi>T</mi><mi>r</mi><mi>a</mi><mi>z</mi><mi>a</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo stretchy="false" form="postfix">)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">\%\ de\ Var\ explicado\ por\ Z_{j} = \ \frac{\lambda_{j}}{Traza(S)}</annotation></semantics></math></p>
+<p>Algo que hasta acá hemos dado por sentado es M, es decir la cantidad de componentes que vamos a retener. Si bien podríamos tener distintos criterios de decisión uno de los más usados es retener todas las componentes cuya varianza sea mayor a 1 (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mi>i</mi></msub><mo>&gt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\lambda_{i} &gt; 1</annotation></semantics></math>), es decir que sea mayor a la varianza de cualquiera de las variables iniciales (todas igual a 1). La interpretación conceptual de esto es que la nueva componente va a ser “mejor” que cualquiera de las variables iniciales por si sola ya que va a contener más información.</p>
+<p><strong>CAPÍTULO III</strong></p>
+<p><strong>ANÁLISIS FACTORIAL</strong></p>
+<p>El análisis factorial nos da un enfoque diferente del problema de reducción de dimensionalidad. El planteo del que partimos es el siguiente, dado un conjunto de D variables iniciales existen un conjunto M de variables subyacentes o factores que no son observables directamente sino a través de combinaciones de las variables iniciales. Lo que se busca es representar nuestros datos originales con este conjunto de factores, teniendo la menor pérdida de información posible, y al igual que en análisis de componentes principales queremos que los factores sean obtenidos de tal forma de que no estén correlacionados entre sí. Esto nos agrega dos elementos de juicio al análisis realizado hasta acá, uno es el <em>principio de parsimonia,</em> queremos que la cantidad de factores sea lo menor posible (hasta aquí habíamos tomado M como dado y no elegimos un criterio con el cual decidir la cantidad de componentes retenidos). El otro elemento es el <em>principio de interpretabilidad,</em> es decir queremos que los factores obtenidos puedan ser interpretables.</p>
+<p>Para aclarar esto pongamos un ejemplo, supongamos que se quiere analizar la importancia que los consumidores dan a 14 variables que se consideran relevantes para la compra de un automóvil. Estas variables son: reparaciones baratas (RB), amplia gama de colores (GC), interior espacioso (IE), bajo consumo de gasolina (BC), manejabilidad (MA), aspecto moderno (AM), valor de recompra alto (RA), confortable (CO), motor potente (MP), aspecto elegante (AE), cómodo de conducir (CC), atractivo de línea (AL), maletero amplio (MA) y fácil de aparcar (FA). Se observa que las 14 variables pueden caracterizarse por cuatro dimensiones subyacentes relacionadas respectivamente con el confort (factor I), con el coste-eficiencia (factor II), con la elegancia (factor III) y con el manejo fácil (factor IV) y no observables directamente. Por lo tanto, en vez de considerar las 14 variables, simplificaremos las cosas, de forma que sólo cuatro factores deban considerarse para caracterizar la estructura subyacente de los datos. En el gráfico 6 se puede ver este análisis.</p>
+<p><em>Gráfico 6</em></p>
+<p><img src="media/image8.png" width="442" height="184" /></p>
+<p>Planteando matemáticamente el modelo factorial nos quedaría:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>=</mo><msub><mi>l</mi><mn>11</mn></msub><mi>.</mi><msub><mi>F</mi><mn>1</mn></msub><mo>+</mo><mi>…</mi><mo>+</mo><msub><mi>l</mi><mrow><mn>1</mn><mi>M</mi></mrow></msub><mi>.</mi><msub><mi>F</mi><mi>M</mi></msub><mo>+</mo><msub><mi>e</mi><mn>1</mn></msub><mo>∖</mo><mi>n</mi></mrow><mrow><mspace width="0.222em"></mspace><mi>⋮</mi><mo>∖</mo><mi>n</mi></mrow><mrow><msub><mi>x</mi><mi>D</mi></msub><mo>=</mo><msub><mi>l</mi><mrow><mi>D</mi><mn>1</mn></mrow></msub><mi>.</mi><msub><mi>F</mi><mn>1</mn></msub><mo>+</mo><mi>…</mi><mo>+</mo><msub><mi>l</mi><mtext mathvariant="normal">DM</mtext></msub><mi>.</mi><msub><mi>F</mi><mi>M</mi></msub><mspace width="0.222em"></mspace><mo>+</mo><msub><mi>e</mi><mi>D</mi></msub></mrow></mrow><annotation encoding="application/x-tex">{x_{1} = l_{11}.F_{1} + \ldots + l_{1M}.F_{M} + e_{1}\backslash n}{\  \vdots \backslash n}{x_{D} = l_{D1}.F_{1} + \ldots + l_{\text{DM}}.F_{M}\  + e_{D}}</annotation></semantics></math></p>
+<p>Se supone a los factores comunes <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mn>1</mn></msub><mo>,</mo><msub><mi>F</mi><mn>2</mn></msub><mo>,</mo><mi>…</mi><mspace width="0.222em"></mspace><mo>,</mo><mspace width="0.222em"></mspace><msub><mi>F</mi><mi>M</mi></msub></mrow><annotation encoding="application/x-tex">F_{1},F_{2},\ldots\ ,\ F_{M}</annotation></semantics></math> como variables estandarizadas (media cero y varianza unitaria) y que además no están correlacionadas entre sí. Se supone también que la matriz de covarianzas de los factores específicos es una matriz diagonal (factores únicos incorrelacionados entre sí) y tienen media igual a cero (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>e</mi><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mn>0</mn><mspace width="0.222em"></mspace><mo>,</mo><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mi>E</mi><mo stretchy="false" form="prefix">[</mo><mi>F</mi><mi>e</mi><mi>′</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">E\left\lbrack e \right\rbrack = 0\ ,\ \ E\lbrack Fe&#39;\rbrack = 0</annotation></semantics></math>)</p>
+<p>Dado que las variables X son variables tipificadas, su matriz de covarianzas es igual a la matriz de correlación poblacional S, matriz que puede descomponerse de la siguiente forma:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathvariant="bold"><mi>𝐒</mi></mstyle><mspace width="0.222em"></mspace><mo>=</mo><mspace width="0.222em"></mspace><mi>E</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mi>X</mi><mi>′</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>E</mi><mo stretchy="false" form="prefix">(</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>L</mi><mi>F</mi><mo>+</mo><mi>e</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>L</mi><mi>F</mi><mo>+</mo><mi>e</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>′</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>L</mi><mi>E</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>F</mi><mi>F</mi><mi>′</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>L</mi><mi>′</mi><mo>+</mo><mi>E</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>e</mi><mi>e</mi><mi>′</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mi>L</mi><mi>E</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>f</mi><mi>e</mi><mi>′</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mi>E</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>e</mi><mi>f</mi><mi>′</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>L</mi><mi>′</mi><mo>=</mo><mi>L</mi><mi>I</mi><mi>L</mi><mi>′</mi><mo>+</mo><mi>Ω</mi><mo>+</mo><mi>L</mi><mn>0</mn><mo>+</mo><mn>0</mn><mi>L</mi><mi>′</mi><mstyle mathvariant="bold"><mo>=</mo><mi>𝐋</mi><mi>𝐋</mi><mi>′</mi><mo>+</mo><mi>𝛀</mi></mstyle></mrow><annotation encoding="application/x-tex">\mathbf{S}\  = \ E\left( XX&#39; \right) = E(\left( LF + e \right)\left( LF + e \right)&#39;) = LE\left( FF&#39; \right)L&#39; + E\left( ee&#39; \right) + LE\left( fe&#39; \right) + E\left( ef&#39; \right)L&#39; = LIL&#39; + \Omega + L0 + 0L&#39;\mathbf{= LL&#39; + \Omega}</annotation></semantics></math></p>
+<p>Expresando esto matricialmente obtenemos:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mrow></mrow><mtext mathvariant="normal">DxD</mtext></munder><mo>=</mo><munder><mrow></mrow><mtext mathvariant="normal">DxM</mtext></munder><mo>×</mo><munder><mrow></mrow><mtext mathvariant="normal">MxD</mtext></munder><mo>+</mo><munder><mrow></mrow><mtext mathvariant="normal">DxD</mtext></munder></mrow><annotation encoding="application/x-tex">\underset{\text{DxD}}{} = \underset{\text{DxM}}{} \times \underset{\text{MxD}}{} + \underset{\text{DxD}}{}</annotation></semantics></math></p>
+<p>Si analizamos el resultado para el primer elemento de S (que es la varianza de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mn>1</mn></msub><annotation encoding="application/x-tex">x_{1}</annotation></semantics></math>) tenemos que:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">VAR</mtext><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>1</mn><mspace width="0.222em"></mspace><mo>=</mo><mspace width="0.222em"></mspace><munder><mo>+</mo><msup><msub><mi>h</mi><mn>1</mn></msub><mn>2</mn></msup></munder><msup><msub><mi>ω</mi><mn>1</mn></msub><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\text{VAR}\left( x_{1} \right) = 1\  = \ \underset{{h_{1}}^{2}}{+}{\omega_{1}}^{2}</annotation></semantics></math></p>
+<p>Donde <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><msub><mi>h</mi><mn>1</mn></msub><mn>2</mn></msup><annotation encoding="application/x-tex">{h_{1}}^{2}</annotation></semantics></math> es el porcentaje de varianza de la variable <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mn>1</mn></msub><annotation encoding="application/x-tex">x_{1}</annotation></semantics></math> explicado por los factores comunes, y se llama <em><strong>comunalidad</strong></em> y <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><msub><mi>ω</mi><mn>1</mn></msub><mn>2</mn></msup><annotation encoding="application/x-tex">{\omega_{1}}^{2}</annotation></semantics></math> es la parte de la varianza de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mn>1</mn></msub><annotation encoding="application/x-tex">x_{1}</annotation></semantics></math> que la explica su factor especifico y se la llama <em><strong>especificidad</strong>.</em></p>
+<p>Ahora bien, cómo relacionamos este análisis de factores con nuestro análisis de componentes principales. Partamos de la solución expresada matricialmente a la que llegamos en ACP. Es importante prestar atención al cambio en la notación, ya que hasta aquí usábamos notación matricial donde cada elemento era una de las N observaciones, la transformación que hacemos aquí es pasar a expresarlo vectorialmente, donde cada variable <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>Z</mi><mi>i</mi></msub><annotation encoding="application/x-tex">Z_{i}</annotation></semantics></math> y <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>X</mi><mi>i</mi></msub><annotation encoding="application/x-tex">X_{i}</annotation></semantics></math> es un vector Nx1 que contiene todas las observaciones. Teniendo esto en cuenta reexpresemos la solución obtenida:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mrow></mrow><mrow><mi>N</mi><mo>×</mo><mi>D</mi></mrow></munder><mo>×</mo><munder><mrow></mrow><mrow><mi>D</mi><mo>×</mo><mi>M</mi></mrow></munder><mo>=</mo><munder><mrow></mrow><mrow><mi>N</mi><mo>×</mo><mi>M</mi></mrow></munder></mrow><annotation encoding="application/x-tex">\underset{N \times D}{} \times \underset{D \times M}{} = \underset{N \times M}{}</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><msub><mi>x</mi><mn>11</mn></msub></mtd><mtd columnalign="center"><mi>…</mi></mtd><mtd columnalign="center"><msub><mi>x</mi><mrow><mi>D</mi><mn>1</mn></mrow></msub></mtd></mtr><mtr><mtd columnalign="center"><mi>⋮</mi></mtd><mtd columnalign="center"><mi>⋱</mi></mtd><mtd columnalign="center"><mi>⋮</mi></mtd></mtr><mtr><mtd columnalign="center"><msub><mi>x</mi><mrow><mn>1</mn><mi>N</mi></mrow></msub></mtd><mtd columnalign="center"><mi>…</mi></mtd><mtd columnalign="center"><msub><mi>x</mi><mtext mathvariant="normal">DN</mtext></msub></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>×</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><msub><mi>b</mi><mn>11</mn></msub></mtd><mtd columnalign="center"><mi>…</mi></mtd><mtd columnalign="center"><msub><mi>b</mi><mrow><mi>M</mi><mn>1</mn></mrow></msub></mtd></mtr><mtr><mtd columnalign="center"><mi>⋮</mi></mtd><mtd columnalign="center"><mi>⋱</mi></mtd><mtd columnalign="center"><mi>⋮</mi></mtd></mtr><mtr><mtd columnalign="center"><msub><mi>b</mi><mrow><mn>1</mn><mi>D</mi></mrow></msub></mtd><mtd columnalign="center"><mi>…</mi></mtd><mtd columnalign="center"><msub><mi>b</mi><mtext mathvariant="normal">MD</mtext></msub></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><msub><mi>z</mi><mn>11</mn></msub></mtd><mtd columnalign="center"><mi>…</mi></mtd><mtd columnalign="center"><msub><mi>z</mi><mrow><mi>M</mi><mn>1</mn></mrow></msub></mtd></mtr><mtr><mtd columnalign="center"><mi>⋮</mi></mtd><mtd columnalign="center"><mi>⋱</mi></mtd><mtd columnalign="center"><mi>⋮</mi></mtd></mtr><mtr><mtd columnalign="center"><msub><mi>z</mi><mrow><mn>1</mn><mi>N</mi></mrow></msub></mtd><mtd columnalign="center"><mi>…</mi></mtd><mtd columnalign="center"><msub><mi>z</mi><mtext mathvariant="normal">MN</mtext></msub></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">\begin{bmatrix}
+x_{11} &amp; \ldots &amp; x_{D1} \\
+ \vdots &amp; \ddots &amp; \vdots \\
+x_{1N} &amp; \ldots &amp; x_{\text{DN}} \\
+\end{bmatrix} \times \begin{bmatrix}
+b_{11} &amp; \ldots &amp; b_{M1} \\
+ \vdots &amp; \ddots &amp; \vdots \\
+b_{1D} &amp; \ldots &amp; b_{\text{MD}} \\
+\end{bmatrix} = \begin{bmatrix}
+z_{11} &amp; \ldots &amp; z_{M1} \\
+ \vdots &amp; \ddots &amp; \vdots \\
+z_{1N} &amp; \ldots &amp; z_{\text{MN}} \\
+\end{bmatrix}</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mover><mover><msub><mi>Z</mi><mn>1</mn></msub><mo accent="true">⏞</mo></mover><mrow><mi>N</mi><mi>x</mi><mn>1</mn></mrow></mover><mo>=</mo><mspace width="0.222em"></mspace><mover><mover><msub><mi>X</mi><mn>1</mn></msub><mo accent="true">⏞</mo></mover><mrow><mi>N</mi><mi>x</mi><mn>1</mn></mrow></mover><mrow><mtext mathvariant="normal">. </mtext><mspace width="0.333em"></mspace></mrow><mover><mover><msub><mi>b</mi><mn>11</mn></msub><mo accent="true">⏞</mo></mover><mrow><mn>1</mn><mi>x</mi><mn>1</mn></mrow></mover><mo>+</mo><mi>…</mi><mo>+</mo><msub><mrow><msub><mi>X</mi><mi>D</mi></msub><mtext mathvariant="normal">.b</mtext></mrow><mrow><mn>1</mn><mi>D</mi></mrow></msub><mo>∖</mo><mi>n</mi></mrow><mrow><mspace width="0.222em"></mspace><mi>⋮</mi></mrow></mrow><annotation encoding="application/x-tex">{\overset{Nx1}{\overbrace{Z_{1}}} = \ \overset{Nx1}{\overbrace{X_{1}}}\text{.\ }\overset{1x1}{\overbrace{b_{11}}} + \ldots + {X_{D}\text{.b}}_{1D}\backslash n}{\  \vdots}</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Z</mi><mi>M</mi></msub><mo>=</mo><mspace width="0.222em"></mspace><msub><mi>X</mi><mn>1</mn></msub><mrow><mtext mathvariant="normal">. </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>b</mi><mrow><mi>M</mi><mn>1</mn></mrow></msub><mo>+</mo><mi>…</mi><mo>+</mo><msub><mrow><msub><mi>X</mi><mi>D</mi></msub><mtext mathvariant="normal">.b</mtext></mrow><mtext mathvariant="normal">MD</mtext></msub></mrow><annotation encoding="application/x-tex">Z_{M} = \ X_{1}\text{.\ }b_{M1} + \ldots + {X_{D}\text{.b}}_{\text{MD}}</annotation></semantics></math></p>
+<p>Ahora bien, también habíamos llegado a la conclusión que <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mrow></mrow><mrow><mi>N</mi><mo>×</mo><mi>M</mi></mrow></munder><mo>×</mo><munder><msup><mrow></mrow><mi>T</mi></msup><mrow><mi>M</mi><mo>×</mo><mi>D</mi></mrow></munder><mo>=</mo><mspace width="0.222em"></mspace><munder><mrow></mrow><mrow><mi>N</mi><mo>×</mo><mi>D</mi></mrow></munder></mrow><annotation encoding="application/x-tex">\underset{N \times M}{} \times \underset{M \times D}{{}^{T}} = \ \underset{N \times D}{}</annotation></semantics></math>, que notado vectorialmente quedaría:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><msub><mrow><mspace width="0.222em"></mspace><mover><mi>X</mi><mo accent="true">̃</mo></mover></mrow><mn>1</mn></msub><mo>=</mo><mspace width="0.222em"></mspace><msub><mi>Z</mi><mn>1</mn></msub><mrow><mtext mathvariant="normal">. </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>b</mi><mn>11</mn></msub><mo>+</mo><mi>…</mi><mo>+</mo><msub><mrow><msub><mi>Z</mi><mi>M</mi></msub><mtext mathvariant="normal">.b</mtext></mrow><mrow><mi>M</mi><mn>1</mn></mrow></msub><mspace width="0.222em"></mspace><mo>∖</mo><mi>n</mi></mrow><mrow><mspace width="0.222em"></mspace><mi>⋮</mi></mrow></mrow><annotation encoding="application/x-tex">{{\ \widetilde{X}}_{1} = \ Z_{1}\text{.\ }b_{11} + \ldots + {Z_{M}\text{.b}}_{M1}\ \backslash n}{\  \vdots}</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>X</mi><mo accent="true">̃</mo></mover><mi>D</mi></msub><mo>=</mo><mspace width="0.222em"></mspace><msub><mi>Z</mi><mn>1</mn></msub><mrow><mtext mathvariant="normal">. </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>b</mi><mrow><mn>1</mn><mi>D</mi></mrow></msub><mo>+</mo><mi>…</mi><mo>+</mo><msub><mrow><msub><mi>Z</mi><mi>M</mi></msub><mtext mathvariant="normal">.b</mtext></mrow><mtext mathvariant="normal">MD</mtext></msub></mrow><annotation encoding="application/x-tex">{\widetilde{X}}_{D} = \ Z_{1}\text{.\ }b_{1D} + \ldots + {Z_{M}\text{.b}}_{\text{MD}}</annotation></semantics></math></p>
+<p>Recordemos que la diferencia entre <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mrow><mspace width="0.222em"></mspace><mover><mi>X</mi><mo accent="true">̃</mo></mover></mrow><mi>i</mi></msub><annotation encoding="application/x-tex">{\ \widetilde{X}}_{i}</annotation></semantics></math> y <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>X</mi><mi>i</mi></msub><annotation encoding="application/x-tex">X_{i}</annotation></semantics></math> era la pérdida de información que teníamos por la reducción de dimensionalidad, supongamos entonces que realizáramos el ACP sin reducir dimensionalidad (M=D), es decir conservando los D componentes principales. Este sistema de ecuaciones quedaría de la siguiente forma:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>=</mo><mspace width="0.222em"></mspace><msub><mi>Z</mi><mn>1</mn></msub><mrow><mtext mathvariant="normal">. </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>b</mi><mn>11</mn></msub><mo>+</mo><mi>…</mi><mo>+</mo><msub><mrow><msub><mi>Z</mi><mi>D</mi></msub><mtext mathvariant="normal">.b</mtext></mrow><mrow><mi>D</mi><mn>1</mn></mrow></msub><mspace width="0.222em"></mspace><mo>∖</mo><mi>n</mi></mrow><mrow><mspace width="0.222em"></mspace><mi>⋮</mi></mrow></mrow><annotation encoding="application/x-tex">{X_{1} = \ Z_{1}\text{.\ }b_{11} + \ldots + {Z_{D}\text{.b}}_{D1}\ \backslash n}{\  \vdots}</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mi>D</mi></msub><mo>=</mo><mspace width="0.222em"></mspace><msub><mi>Z</mi><mn>1</mn></msub><mrow><mtext mathvariant="normal">. </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>b</mi><mrow><mn>1</mn><mi>D</mi></mrow></msub><mo>+</mo><mi>…</mi><mo>+</mo><msub><mrow><msub><mi>Z</mi><mi>D</mi></msub><mtext mathvariant="normal">.b</mtext></mrow><mtext mathvariant="normal">DD</mtext></msub></mrow><annotation encoding="application/x-tex">X_{D} = \ Z_{1}\text{.\ }b_{1D} + \ldots + {Z_{D}\text{.b}}_{\text{DD}}</annotation></semantics></math></p>
+<p>Pero el análisis factorial exige que los factores estén estandarizados, entonces estandarizando nuestras variables (teniendo en cuenta los resultados obtenidos anteriormente <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>Z</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn><mspace width="0.222em"></mspace><mi>y</mi><mspace width="0.222em"></mspace><mi>v</mi><mi>a</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>Z</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>λ</mi><mi>i</mi></msub><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">E\left( Z_{i} \right) = 0\ y\ var\left( Z_{i} \right) = \lambda_{i}\ </annotation></semantics></math>) y llamando <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>Y</mi><mi>i</mi></msub><annotation encoding="application/x-tex">Y_{i}</annotation></semantics></math> a las variables estandarizadas quedaría:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Y</mi><mi>i</mi></msub><mo>=</mo><mspace width="0.222em"></mspace><mfrac><msub><mi>Z</mi><mi>i</mi></msub><msqrt><msub><mi>λ</mi><mi>i</mi></msub></msqrt></mfrac></mrow><annotation encoding="application/x-tex">Y_{i} = \ \frac{Z_{i}}{\sqrt{\lambda_{i}}}</annotation></semantics></math></p>
+<p>El cual podría ser reexpresado como:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><msub><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> X</mtext></mrow><mn>1</mn></msub><mo>=</mo><mspace width="0.222em"></mspace><munder><mrow></mrow><mrow><mspace width="0.222em"></mspace><msub><mover><mi>X</mi><mo accent="true">̃</mo></mover><mn>1</mn></msub></mrow></munder><mo>+</mo><munder><mrow></mrow><msub><mi>e</mi><mn>1</mn></msub></munder><mspace width="0.222em"></mspace><mo>∖</mo><mi>n</mi></mrow><mrow><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mi>⋮</mi><mspace width="0.222em"></mspace></mrow></mrow><annotation encoding="application/x-tex">{\text{\ X}_{1} = \ \underset{\ {\widetilde{X}}_{1}}{} + \underset{e_{1}}{}\ \backslash n}{\ \  \vdots \ }</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mi>D</mi></msub><mo>=</mo><mspace width="0.222em"></mspace><munder><mrow></mrow><msub><mover><mi>X</mi><mo accent="true">̃</mo></mover><mi>D</mi></msub></munder><mo>+</mo><munder><mrow></mrow><msub><mi>e</mi><mi>D</mi></msub></munder></mrow><annotation encoding="application/x-tex">X_{D} = \ \underset{{\widetilde{X}}_{D}}{} + \underset{e_{D}}{}</annotation></semantics></math></p>
+<p>Reexpresando cada <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Z</mi><mi>i</mi></msub><mo>=</mo><msub><mi>Y</mi><mi>i</mi></msub><mrow><mtext mathvariant="normal">. </mtext><mspace width="0.333em"></mspace></mrow><msqrt><msub><mi>λ</mi><mi>i</mi></msub></msqrt></mrow><annotation encoding="application/x-tex">Z_{i} = Y_{i}\text{.\ }\sqrt{\lambda_{i}}</annotation></semantics></math> para cada una de las D ecuaciones tendremos:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mi>j</mi></msub><mo>=</mo><mspace width="0.222em"></mspace><munder><mrow></mrow><msub><mover><mi>X</mi><mo accent="true">̃</mo></mover><mi>j</mi></msub></munder><mo>+</mo><mspace width="0.222em"></mspace><msub><mi>e</mi><mi>D</mi></msub></mrow><annotation encoding="application/x-tex">X_{j} = \ \underset{{\widetilde{X}}_{j}}{} + \ e_{D}</annotation></semantics></math></p>
+<p>Comparando este resultado con el sistema de ecuaciones planteado al inicio del análisis factorial:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>=</mo><msub><mi>l</mi><mn>11</mn></msub><mi>.</mi><msub><mi>F</mi><mn>1</mn></msub><mo>+</mo><mi>…</mi><mo>+</mo><msub><mi>l</mi><mrow><mn>1</mn><mi>M</mi></mrow></msub><mi>.</mi><msub><mi>F</mi><mi>M</mi></msub><mo>+</mo><msub><mi>e</mi><mn>1</mn></msub><mo>∖</mo><mi>n</mi></mrow><mrow><mspace width="0.222em"></mspace><mi>⋮</mi><mo>∖</mo><mi>n</mi></mrow><mrow><msub><mi>x</mi><mi>D</mi></msub><mo>=</mo><msub><mi>l</mi><mrow><mi>D</mi><mn>1</mn></mrow></msub><mi>.</mi><msub><mi>F</mi><mn>1</mn></msub><mo>+</mo><mi>…</mi><mo>+</mo><msub><mi>l</mi><mtext mathvariant="normal">DM</mtext></msub><mi>.</mi><msub><mi>F</mi><mi>M</mi></msub><mspace width="0.222em"></mspace><mo>+</mo><msub><mi>e</mi><mi>D</mi></msub></mrow></mrow><annotation encoding="application/x-tex">{x_{1} = l_{11}.F_{1} + \ldots + l_{1M}.F_{M} + e_{1}\backslash n}{\  \vdots \backslash n}{x_{D} = l_{D1}.F_{1} + \ldots + l_{\text{DM}}.F_{M}\  + e_{D}}</annotation></semantics></math></p>
+<p>Donde cada <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>l</mi><mtext mathvariant="normal">ij</mtext></msub><mo>=</mo><mspace width="0.222em"></mspace><msqrt><msub><mi>λ</mi><mi>i</mi></msub></msqrt><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> . </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>b</mi><mtext mathvariant="normal">ij</mtext></msub><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal">        con   </mtext><mspace width="0.333em"></mspace></mrow><mi>i</mi><mo>=</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mi>.</mi><mi>.</mi><mo>,</mo><mi>M</mi><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mi>j</mi><mo>=</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>D</mi></mrow><annotation encoding="application/x-tex">l_{\text{ij}} = \ \sqrt{\lambda_{i}}\text{\ .\ }b_{\text{ij}}\text{\ \ \ \ \ \ \ \ con\ \ \ }i = 1,2,..,M\ \ \ \ \ \ \ \ \ j = 1,2,\ldots,D</annotation></semantics></math></p>
+<p>Vemos entonces que estandarizando cada uno de los componentes principales obtenidos del ACP podemos interpretar los resultados del mismo como un análisis factorial, obteniendo así la ventaja de que los factores obtenidos puedan tener una interpretación a partir de la rotación de las componentes que se analizará en la siguiente sección.</p>
+<p>Para finalizar esta sección vamos a demostrar cómo cada uno de los <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>l</mi><mtext mathvariant="normal">ij</mtext></msub><annotation encoding="application/x-tex">l_{\text{ij}}</annotation></semantics></math> puede ser interpretado como la correlación entre la variable inicial “j” y la componente “i”. Notando vectorialmente <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>X</mi><mi>j</mi></msub><annotation encoding="application/x-tex">X_{j}</annotation></semantics></math> y <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><msub><mi>Z</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\ Z_{i}</annotation></semantics></math> como los vectores con las N observaciones para la variable “j” y la componente “i” respectivamente podemos calcular su covarianza como :</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">cov</mtext><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>X</mi><mi>j</mi></msub><mo>,</mo><msub><mi>Z</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mspace width="0.222em"></mspace><mfrac><mn>1</mn><mi>N</mi></mfrac><mspace width="0.222em"></mspace><msup><msub><mi>X</mi><mi>j</mi></msub><mi>′</mi></msup><mrow><mtext mathvariant="normal">. </mtext><mspace width="0.333em"></mspace></mrow><msub><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> Z</mtext></mrow><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\text{cov}\left( X_{j},Z_{i} \right) = \ \frac{1}{N}\ {X_{j}}^{&#39;}\text{.\ }\text{\ Z}_{i}</annotation></semantics></math></p>
+<p>Si agregamos un vector <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>δ</mi><annotation encoding="application/x-tex">\delta</annotation></semantics></math> de dimensión <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>x</mi><mi>D</mi></mrow><annotation encoding="application/x-tex">1xD</annotation></semantics></math> que tenga 0 en todas las posiciones y 1 en la posición “j” podríamos notar a <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><msub><mi>X</mi><mi>j</mi></msub><mi>′</mi></msup><annotation encoding="application/x-tex">{X_{j}}^{&#39;}</annotation></semantics></math> como:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><msub><mi>X</mi><mi>j</mi></msub><mi>′</mi></msup><mo>=</mo><mi>δ</mi><mspace width="0.222em"></mspace><mi>.</mi><mspace width="0.222em"></mspace><msup><mi>X</mi><mi>′</mi></msup><mo>=</mo><mspace width="0.222em"></mspace><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mi>…</mi></mtd><mtd columnalign="center"><mn>1</mn></mtd></mtr></mtable><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal">     </mtext><mspace width="0.333em"></mspace></mrow><mtable><mtr><mtd columnalign="center"><mi>…</mi></mtd><mtd columnalign="center"><mn>0</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> x </mtext><mspace width="0.333em"></mspace></mrow><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><msub><mi>x</mi><mn>11</mn></msub></mtd><mtd columnalign="center"><mi>…</mi></mtd><mtd columnalign="center"><msub><mi>x</mi><mrow><mn>1</mn><mi>N</mi></mrow></msub></mtd></mtr><mtr><mtd columnalign="center"><mi>⋮</mi></mtd><mtd columnalign="center"><mi>⋱</mi></mtd><mtd columnalign="center"><mi>⋮</mi></mtd></mtr><mtr><mtd columnalign="center"><msub><mi>x</mi><mrow><mi>D</mi><mn>1</mn></mrow></msub></mtd><mtd columnalign="center"><mi>…</mi></mtd><mtd columnalign="center"><msub><mi>x</mi><mtext mathvariant="normal">DN</mtext></msub></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">{X_{j}}^{&#39;} = \delta\ .\ X^{&#39;} = \ \left\lbrack \begin{matrix}
+0 &amp; \ldots &amp; 1 \\
+\end{matrix}\text{\ \ \ \ \ }\begin{matrix}
+\ldots &amp; 0 \\
+\end{matrix} \right\rbrack\text{\ x\ }\begin{bmatrix}
+x_{11} &amp; \ldots &amp; x_{1N} \\
+ \vdots &amp; \ddots &amp; \vdots \\
+x_{D1} &amp; \ldots &amp; x_{\text{DN}} \\
+\end{bmatrix}</annotation></semantics></math></p>
+<p>Siendo <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><msup><mi>X</mi><mi>′</mi></msup></mrow><annotation encoding="application/x-tex">\ X^{&#39;}</annotation></semantics></math> la matriz de datos iniciales traspuesta. Adicionalmente recordando que <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Z</mi><mi>i</mi></msub><mo>=</mo><mspace width="0.222em"></mspace><mi>X</mi><mi>.</mi><mspace width="0.222em"></mspace><msub><mi>b</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">Z_{i} = \ X.\ b_{i}</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">cov</mtext><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>X</mi><mi>j</mi></msub><mo>,</mo><msub><mi>Z</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mspace width="0.222em"></mspace><mfrac><mn>1</mn><mi>N</mi></mfrac><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> δ . </mtext><mspace width="0.333em"></mspace></mrow><msup><mi>X</mi><mi>′</mi></msup><mrow><mtext mathvariant="normal">.  X. </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>b</mi><mi>i</mi></msub><mo>=</mo><mspace width="0.222em"></mspace><munder><mrow><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace></mrow><mi>S</mi></munder><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> .  </mtext><mspace width="0.333em"></mspace></mrow><munder><mrow></mrow><msub><mi>b</mi><mtext mathvariant="normal">ij</mtext></msub></munder><mo>=</mo><mspace width="0.222em"></mspace><msub><mi>λ</mi><mi>i</mi></msub><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> . </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>b</mi><mtext mathvariant="normal">ij</mtext></msub></mrow><annotation encoding="application/x-tex">\text{cov}\left( X_{j},Z_{i} \right) = \ \frac{1}{N}\text{\ δ\ .\ }X^{&#39;}\text{.\ \ X.\ }b_{i} = \ \underset{S}{\ \ }\text{\ .\ \ }\underset{b_{\text{ij}}}{} = \ \lambda_{i}\text{\ .\ }b_{\text{ij}}</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">corr</mtext><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>X</mi><mi>j</mi></msub><mo>,</mo><msub><mi>Z</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>r</mi><mtext mathvariant="normal">ij</mtext></msub><mo>=</mo><mfrac><mrow><msub><mi>λ</mi><mi>i</mi></msub><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> . </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>b</mi><mtext mathvariant="normal">ij</mtext></msub></mrow><munder><mrow><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> . </mtext><mspace width="0.333em"></mspace></mrow><msqrt><msub><mi>λ</mi><mi>i</mi></msub></msqrt><mspace width="0.222em"></mspace></mrow><mrow><mo>=</mo><mn>1</mn></mrow></munder></mfrac></mrow><annotation encoding="application/x-tex">\text{corr}\left( X_{j},Z_{i} \right) = r_{\text{ij}} = \frac{\lambda_{i}\text{\ .\ }b_{\text{ij}}}{\underset{= 1}{\text{\ .\ }\sqrt{\lambda_{i}}\ }}</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mtext mathvariant="normal">ij</mtext></msub><mo>=</mo><msqrt><msub><mi>λ</mi><mi>i</mi></msub></msqrt><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> . </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>b</mi><mtext mathvariant="normal">ij</mtext></msub></mrow><annotation encoding="application/x-tex">r_{\text{ij}} = \sqrt{\lambda_{i}}\text{\ .\ }b_{\text{ij}}</annotation></semantics></math></p>
+<p>Donde se hace uso de la expresión que habíamos obtenido para la matriz de correlaciones S y de la definición de coeficiente de correlación para 2 variables. De esta forma llegamos a la demostración de que cada uno de los coeficientes <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>l</mi><mtext mathvariant="normal">ij</mtext></msub><annotation encoding="application/x-tex">l_{\text{ij}}</annotation></semantics></math> representa la correlación entre la variable inicial “j” y la componente “i”.</p>
+<p>La matriz formada por todos los coeficientes <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>l</mi><mtext mathvariant="normal">ij</mtext></msub><annotation encoding="application/x-tex">l_{\text{ij}}</annotation></semantics></math> es entonces la <strong>matriz de cargas factoriales</strong> que contiene cada una de las correlaciones entre los factores retenidos y las variables iniciales.</p>
+<p><strong>CAPÍTULO IV</strong></p>
+<p><strong>ROTACIÓN DE COMPONENTES</strong></p>
+<p>En el proceso de rotación de componentes lo que se hace gráficamente es girar la dirección de estos nuevos ejes de referencia que van a definir el subespacio sobre el que proyectaremos los datos. Existen 2 tipos de rotaciones, las rotaciones ortogonales que mantienen los ejes perpendiculares, con lo cual las componentes resultantes seguirán teniendo la característica de no estar correlacionadas entre sí; y las rotaciones oblicuas las cuales sacrifican un poco de esa independencia con el objetivo de obtener una mayor interpretabilidad de las componentes. A su vez dentro de cada tipo hay varios métodos que se pueden usar, nosotros en este apartado nos centraremos en la rotación <strong>Varimax</strong>, que es una rotación ortogonal y es la de uso más extendido.</p>
+<p>Lo que buscamos con la rotación de componentes es que cada una de las variables tenga una correlación máxima con uno de los factores (es decir, uno) y cero con el resto de los factores o componentes. De tal forma que esto facilite la tarea de asociar a cada factor como esa “variable subyacente” representada por un grupo de las variables iniciales.</p>
+<p>Imaginemos que tenemos un conjunto de datos en <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mn>3</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^{3}</annotation></semantics></math> (es decir 3 variables iniciales) que podríamos agrupar dentro de un determinado elipsoide, y que vamos a representar estos datos en un plano <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mn>2</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^{2}</annotation></semantics></math> (es decir 2 componentes). La metodología hasta aquí usada por el ACP es ir eligiendo iterativamente como ejes de cada componente el eje sobre el que el conjunto de datos tenga mayor varianza. En este caso como vamos a tener los datos representados en un plano, tendremos que nuestros nuevos 2 ejes serán los 2 ejes sobre los que los datos tengan máxima varianza, y que van a coincidir con los 2 ejes más grandes de este elipsoide imaginario. Lo que hacemos al rotar los componentes es rotar estos 2 ejes (manteniéndolos perpendiculares entre sí) sin variar el plano que generan. La consecuencia de esto es que todos los puntos originales se van a seguir representando sobre el mismo plano, pero respecto a unos ejes diferentes, es decir solo van a cambiar sus coordenadas. Esto permite que al rotar los componentes <strong>no perdamos nada del total de varianza explicado</strong> por los componentes en su conjunto. Metodológicamente lo que hacemos es que la información perdida por la primera componente (ya no está en la dirección en la que los datos tienen máxima varianza, por lo tanto, va a disminuir ese nivel de varianza captada) va a ser recogida por la segunda. Podríamos generalizar esto diciendo que la información perdida por las primeras K componentes va a ser recogida por las ultimas M-K componentes.</p>
+<p>Matemáticamente la rotación Varimax lo que hace es calcular una variable que llama <strong>simplicidad</strong> (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><msub><mi>C</mi><mi>i</mi></msub><mn>2</mn></msup><annotation encoding="application/x-tex">{C_{i}}^{2}</annotation></semantics></math>), que es la varianza de los cuadrados de las cargas factoriales (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>r</mi><mtext mathvariant="normal">ij</mtext></msub><annotation encoding="application/x-tex">r_{\text{ij}}</annotation></semantics></math>) para un determinado factor (i). Adicionalmente lo que se hace comúnmente es aplicar lo que se llama la Normalización de Kaiser, donde cada <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>r</mi><mtext mathvariant="normal">ij</mtext></msub><annotation encoding="application/x-tex">r_{\text{ij}}</annotation></semantics></math> se divide por la comunalidad de la variable inicial “j” (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><msub><mi>h</mi><mi>j</mi></msub><mn>2</mn></msup><annotation encoding="application/x-tex">{h_{j}}^{2}</annotation></semantics></math>). Esto se hace para evitar que las <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math> con mayor comunalidad tengan más influencia (más peso) en la solución final. Una vez calculada esta simplicidad normalizada para cada uno de los factores lo que se hace es <strong>maximizar la sumatoria de todas estas simplicidades</strong> (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>C</mi><mn>2</mn></msup><annotation encoding="application/x-tex">C^{2}</annotation></semantics></math>). Matemáticamente la expresión que se maximiza es:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mtext mathvariant="normal">Max </mtext><mspace width="0.333em"></mspace></mrow><msup><mi>C</mi><mn>2</mn></msup><mo>=</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>M</mi></munderover><msup><msub><mi>C</mi><mi>i</mi></msub><mn>2</mn></msup><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal">           con    </mtext><mspace width="0.333em"></mspace></mrow><msup><msub><mi>C</mi><mi>i</mi></msub><mn>2</mn></msup><mo>=</mo><mfrac><mn>1</mn><mi>D</mi></mfrac><mspace width="0.222em"></mspace><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>D</mi></munderover><mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><msup><msub><mi>r</mi><mtext mathvariant="normal">ij</mtext></msub><mn>2</mn></msup><msup><msub><mi>h</mi><mi>j</mi></msub><mn>2</mn></msup></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>−</mo><mspace width="0.222em"></mspace></mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>1</mn><mi>D</mi></mfrac><mspace width="0.222em"></mspace><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>D</mi></munderover><mrow><mfrac><msup><msub><mi>r</mi><mtext mathvariant="normal">ij</mtext></msub><mn>2</mn></msup><msup><msub><mi>h</mi><mi>j</mi></msub><mn>2</mn></msup></mfrac><mspace width="0.222em"></mspace></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\text{Max\ }C^{2} = \sum_{i = 1}^{M}{C_{i}}^{2}\text{\ \ \ \ \ \ \ \ \ \ \ con\ \ \ \ }{C_{i}}^{2} = \frac{1}{D}\ \sum_{j = 1}^{D}{\left( \frac{{r_{\text{ij}}}^{2}}{{h_{j}}^{2}} \right)^{2} - \ }\left( \frac{1}{D}\ \sum_{j = 1}^{D}{\frac{{r_{\text{ij}}}^{2}}{{h_{j}}^{2}}\ } \right)^{2}</annotation></semantics></math></p>
+<p>Dos notas interesantes de casos extremos que se pueden hacer sobre este tema es que<strong>, si no se reduce la cantidad de variables</strong> (M=D) se pueden rotar los ejes como se quiera sin perder información, solo cambian las coordenadas (coeficientes). Y que justamente por la forma iterativa en que se realiza si tuviéramos un solo componente no podríamos realizar ninguna rotación, como mínimo se deben tener dos.</p>
+<p><strong>CAPÍTULO V</strong></p>
+<p><strong>CASO PRÁCTICO</strong></p>
+<p>En esta sección desarrollaremos un ejemplo aplicado del ACP en el que a partir de una serie de variables iniciales (las cuales se detallan en la tabla 1) que se consideran representativas para la actividad económica de Mendoza se intentará obtener una cantidad reducida de componentes que las representen y a partir de los cuales se pueda construir un índice de actividad económica para la provincia.</p>
+<p>La utilidad práctica que se busca con este caso es que, dado que las variables usadas están disponibles con periodicidad mensual el índice resultante también lo será, con lo cual podría servir como un estimador de la actividad económica de la provincia, que hoy solo existe anualmente.</p>
+<p><em>Tabla 1</em></p>
+<table>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>AUTOMOTRIZ</td>
+<td>Ventas Mensuales de Automotores Cero Km por Segmento. Mendoza. Enero 2010 - Noviembre 2018</td>
+</tr>
+<tr class="even">
+<td>EELECTRESIDENCIAL</td>
+<td>Consumo de Energía Eléctrica Residencial en MWh. Años 2004 - 2019</td>
+</tr>
+<tr class="odd">
+<td>EELECTCOMERCIAL</td>
+<td>Consumo de Energía Eléctrica General/Comercial en MWh. Años 2004 - 2019</td>
+</tr>
+<tr class="even">
+<td>EELECTINDUSTRIAL</td>
+<td>Consumo de Energía Eléctrica Grandes Demandas/Industrial en MWh. Años 2004 - 2019</td>
+</tr>
+<tr class="odd">
+<td>ENARGAS TOTAL SISTEMA</td>
+<td>Total - En miles de m<sup>3</sup> de 9300 kcal y en porcentaje. Años 2004-2018</td>
+</tr>
+<tr class="even">
+<td>HOTELMDZ</td>
+<td>Demanda hotelera por mes y condición de residencia de los viajeros hospedados. Ciudad de Mendoza. Años 2008-2018</td>
+</tr>
+<tr class="odd">
+<td>INDUSTRIA</td>
+<td>Índice de ventas industriales a valores constantes y variación porcentual.</td>
+</tr>
+<tr class="even">
+<td>INMUEBLES</td>
+<td>Total de inmuebles involucrados en operaciones en el Registro Público de la Propiedad, a través de escrituras públicas (corresponden a la 1ª,3ª y 4ª Circunscripción Judicial) y variación porcentual. Mendoza. Enero 2006-Noviembre 2018</td>
+</tr>
+<tr class="odd">
+<td>PATVEHI</td>
+<td>Patentamiento de Vehículos (Autos, Motos y Maquinarias Agrícolas)</td>
+</tr>
+<tr class="even">
+<td>SHOPPING</td>
+<td>Índice mensual de ventas de mercaderías y servicios en centros de compras a valores corrientes. Año base 2010. Mendoza. Enero 2010-Noviembre 2018</td>
+</tr>
+<tr class="odd">
+<td>SUPERMERCADOS</td>
+<td>Ventas a precios constantes por grupo de artículos, en pesos de 2004. Mendoza. Años 2010-2018</td>
+</tr>
+<tr class="even">
+<td>VINO</td>
+<td>Despachos de vinos autorizados para ser liberados al consumo. Mendoza. Años 2004 - 2017</td>
+</tr>
+</tbody>
+</table>
+<p>Inicialmente usando el software SPSS se realizó un ACP sobre este conjunto de variables obteniendo los resultados que se muestran a continuación (tabla 2). Una aclaración es que en todos los casos se utilizó como metodología para rotar los ejes la rotación Varimax.</p>
+<p><em>Tabla 2</em></p>
+<p>Total Variance Explained</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p>Component</p>
+</blockquote></td>
+<td><blockquote>
+<p>Initial Eigenvalues</p>
+</blockquote></td>
+<td><blockquote>
+<p>Extraction Sums of Squared Loadings</p>
+</blockquote></td>
+<td><blockquote>
+<p>Rotation Sums of Squared Loadings</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><blockquote>
+<p>Total</p>
+</blockquote></td>
+<td><blockquote>
+<p>% of Variance</p>
+</blockquote></td>
+<td><blockquote>
+<p>Cumulative %</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>2.816</p>
+</blockquote></td>
+<td><blockquote>
+<p>23.469</p>
+</blockquote></td>
+<td><blockquote>
+<p>23.469</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>2.447</p>
+</blockquote></td>
+<td><blockquote>
+<p>20.393</p>
+</blockquote></td>
+<td><blockquote>
+<p>43.862</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>1.753</p>
+</blockquote></td>
+<td><blockquote>
+<p>14.608</p>
+</blockquote></td>
+<td><blockquote>
+<p>58.470</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>1.500</p>
+</blockquote></td>
+<td><blockquote>
+<p>12.502</p>
+</blockquote></td>
+<td><blockquote>
+<p>70.971</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>5</p>
+</blockquote></td>
+<td><blockquote>
+<p>1.056</p>
+</blockquote></td>
+<td><blockquote>
+<p>8.801</p>
+</blockquote></td>
+<td><blockquote>
+<p>79.773</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>6</p>
+</blockquote></td>
+<td><blockquote>
+<p>.706</p>
+</blockquote></td>
+<td><blockquote>
+<p>5.884</p>
+</blockquote></td>
+<td><blockquote>
+<p>85.656</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>7</p>
+</blockquote></td>
+<td><blockquote>
+<p>.491</p>
+</blockquote></td>
+<td><blockquote>
+<p>4.095</p>
+</blockquote></td>
+<td><blockquote>
+<p>89.752</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>8</p>
+</blockquote></td>
+<td><blockquote>
+<p>.403</p>
+</blockquote></td>
+<td><blockquote>
+<p>3.360</p>
+</blockquote></td>
+<td><blockquote>
+<p>93.112</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>9</p>
+</blockquote></td>
+<td><blockquote>
+<p>.344</p>
+</blockquote></td>
+<td><blockquote>
+<p>2.868</p>
+</blockquote></td>
+<td><blockquote>
+<p>95.979</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>10</p>
+</blockquote></td>
+<td><blockquote>
+<p>.207</p>
+</blockquote></td>
+<td><blockquote>
+<p>1.722</p>
+</blockquote></td>
+<td><blockquote>
+<p>97.701</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>11</p>
+</blockquote></td>
+<td><blockquote>
+<p>.177</p>
+</blockquote></td>
+<td><blockquote>
+<p>1.472</p>
+</blockquote></td>
+<td><blockquote>
+<p>99.173</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>12</p>
+</blockquote></td>
+<td><blockquote>
+<p>.099</p>
+</blockquote></td>
+<td><blockquote>
+<p>.827</p>
+</blockquote></td>
+<td><blockquote>
+<p>100.000</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td>Rotated Component Matrix</td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>AUTOS</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>EELECTCOMER</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>EELECTIND</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>EELECTRES</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>GASTOTAL</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>HOTELMDZ</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>INDUSTRIA</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>INMUEBLES</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>PATVEHI</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>SHOPPING</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>SUPERMERCADOS</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>VINO</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td>Communalities</td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>AUTOS</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>EELECTCOMER</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>EELECTIND</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>EELECTRES</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>GASTOTAL</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>HOTELMDZ</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>INDUSTRIA</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>INMUEBLES</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>PATVEHI</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>SHOPPING</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>SUPERMERCADOS</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>VINO</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Extraction Method: Principal Component Analysis.</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<p>Dados que estos resultados nos dejan 5 componentes principales, se complicaría obtener un índice único. El proceso que se fue haciendo implicó sacar algunas variables en base al peso que tuvieran en los componentes principales, descartando las de menor peso relativo. También en base al número de observaciones disponibles para esa variable, ya que no de todas se disponía de la misma cantidad de observaciones, priorizando mantener aquellas que tuvieran más. El resultado final de este proceso de iteración es el que se muestra en la tabla 3.</p>
+<p><em>Tabla 3</em></p>
+<p>Total Variance Explained</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p>Component</p>
+</blockquote></td>
+<td><blockquote>
+<p>Initial Eigenvalues</p>
+</blockquote></td>
+<td><blockquote>
+<p>Extraction Sums of Squared Loadings</p>
+</blockquote></td>
+<td><blockquote>
+<p>Rotation Sums of Squared Loadings</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><blockquote>
+<p>Total</p>
+</blockquote></td>
+<td><blockquote>
+<p>% of Variance</p>
+</blockquote></td>
+<td><blockquote>
+<p>Cumulative %</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>2.403</p>
+</blockquote></td>
+<td><blockquote>
+<p>40.054</p>
+</blockquote></td>
+<td><blockquote>
+<p>40.054</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>1.673</p>
+</blockquote></td>
+<td><blockquote>
+<p>27.879</p>
+</blockquote></td>
+<td><blockquote>
+<p>67.933</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>.881</p>
+</blockquote></td>
+<td><blockquote>
+<p>14.689</p>
+</blockquote></td>
+<td><blockquote>
+<p>82.622</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>.564</p>
+</blockquote></td>
+<td><blockquote>
+<p>9.398</p>
+</blockquote></td>
+<td><blockquote>
+<p>92.020</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>5</p>
+</blockquote></td>
+<td><blockquote>
+<p>.368</p>
+</blockquote></td>
+<td><blockquote>
+<p>6.132</p>
+</blockquote></td>
+<td><blockquote>
+<p>98.152</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>6</p>
+</blockquote></td>
+<td><blockquote>
+<p>.111</p>
+</blockquote></td>
+<td><blockquote>
+<p>1.848</p>
+</blockquote></td>
+<td><blockquote>
+<p>100.000</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td>Rotated Component Matrix</td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>EELECTCOMER</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>EELECTRES</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>GASTOTAL</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>INMUEBLES</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>VINO</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>HOTELMDZ</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td>Communalities</td>
+</tr>
+<tr class="odd">
+<td></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>EELECTCOMER</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>EELECTRES</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>GASTOTAL</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>INMUEBLES</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>VINO</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>HOTELMDZ</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<p>De acuerdo a estos resultados finales usamos 6 variables representativas del nivel de actividad mensual y obtenemos 2 factores principales. De las 6 variables EELECTCOMER, EELECTRES y HOTELMDZ están muy representadas en el factor 1, en tanto que GASTOTAL, INMUEBLES y VINO lo están en el factor 2.</p>
+<p>Dados estos 2 factores obtenidos, cuyos histogramas están representados en el gráfico 7, los combinamos algebraicamente sumándolos, para así obtener el índice de actividad que estábamos buscando.</p>
+<p>Ahora bien, para probar la validez de nuestro índice vamos a compararlo respecto al EMAE en el mismo periodo de tiempo, para que esta comparación tenga sentido lo que se hizo fue estandarizar el EMAE como se muestra en la Tabla 4 y Gráfico 8 respectivamente</p>
+<p><em>Gráfico 7</em></p>
+<p><img src="media/image9.png" width="336" height="262" /><img src="media/image10.png" width="448" height="264" /></p>
+<p><em>Tabla 4</em></p>
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Descriptive Statistics</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>emae2</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Valid N (listwise)</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<p><em>Gráfico 8</em></p>
+<p><img src="media/image11.png" width="633" height="372" /></p>
+<p>Luego de estandarizado el EMAE lo contraponemos gráficamente con respecto a ambos factores (gráfico 9) y con respecto a nuestro índice (gráfico 10).</p>
+<p><em>Gráfico 9</em></p>
+<p><span class="chart">[CHART]</span></p>
+<p><em>Gráfico 10</em></p>
+<p><span class="chart">[CHART]</span></p>
+<p>Como podemos observar en el gráfico 11, sí hay una equivalencia en las variaciones de los niveles de actividad a nivel nacional con respecto a lo que muestra el índice construido para Mendoza. Adicionalmente se puede observar un aparente rezago del índice respecto del EMAE, para corroborar esto se intentará ver si este rezago existe también entre el PBG de la provincia y el PBI nacional que serían los equivalentes de estas series, pero con periodicidad anual. Esto último se muestra en los gráficos 11 y 12 respectivamente.</p>
+<p><em>Gráfico 11</em></p>
+<p><span class="chart">[CHART][CHART]</span></p>
+<p>Analizando los resultados obtenidos de nuestro caso de estudio, podemos concluir que a través del método de ACP fuimos capaces de crear un índice que representa la actividad económica de la provincia. Al comparar este índice respecto al EMAE hay una equivalencia con algunos períodos de atraso, lo cual indicaría que las variaciones que se producen a nivel nacional se transmiten luego a la provincia. Al momento de intentar contrastar esta hipótesis haciendo uso del PBG y PBI, la misma pareciera no cumplirse (teniendo en cuenta que la periodicidad es distinta en ambos casos ya que justamente el índice se crea porque no hay ninguna estadística con esa periodicidad para la provincia) sino que son bastante simultaneas las variaciones. Quedaría como posible caso de estudio profundizar en el por qué de este rezago al hacer el análisis mensual.</p>
+<p>CONCLUSIONES</p>
+<p>Para sacar las conclusiones usaremos ejemplos de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mn>2</mn></msup><mstyle mathvariant="double-struck"><mo>→</mo><mi>ℝ</mi></mstyle></mrow><annotation encoding="application/x-tex">\mathbb{R}^{2}\mathbb{\rightarrow R}</annotation></semantics></math> para que sea más simple analizarlo conceptualmente más allá de la matemática. Supongamos que tenemos una serie de datos con una representación gráfica como la del gráfico 12.</p>
+<p><em>Gráfico 12</em></p>
+<p><img src="media/image12.png" alt="D:\Asset 6.png" width="349" height="332" /></p>
+<p>Calculamos los eigenvectores y el resultado obtenido nos dice que la proyección que minimiza la función J es la dada por la recta <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>2</mn><mi>x</mi></mrow><annotation encoding="application/x-tex">y = 2x</annotation></semantics></math>. O sea que nuestros errores van a ser las distancias de cada punto a esa recta. Entre más correlacionadas estuvieran estas dos variables esta nube de puntos más se parecería a una recta y por ende menor sería el error. Esto nos da el primer caso en el que puede ser útil el ACP, cuando las variables iniciales están altamente correlacionadas podemos reducir su dimensionalidad sin tener una gran pérdida de información.</p>
+<p>Otro caso sería que, por ejemplo, la nube de puntos estuviera alrededor del eje X, es decir la recta tendría pendiente igual a cero. En este caso lo que está pasando es que la variable Y tiene muy poca varianza. El resultado del ACP para este caso va a ser que el subespacio principal va a ser el eje X, cuyo vector base es <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center"><mn>0</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">b = \begin{bmatrix}
+1 \\
+0 \\
+\end{bmatrix}</annotation></semantics></math>. Esto quiere decir que el coeficiente que le estamos asignando a los datos de la variable Y es 0, estamos eliminando esta variable. Este es el segundo caso, cuando haya variables con varianza muy bajas van a tener coeficientes muy cercanos a cero y <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mover><mo>=</mo><mo accent="true">̃</mo></mover><mspace width="0.222em"></mspace><msub><mtext mathvariant="normal">var</mtext><mi>y</mi></msub></mrow><annotation encoding="application/x-tex">J\widetilde{=}\ \text{var}_{y}</annotation></semantics></math> (en nuestro caso extremo J es exactamente igual a la varianza de Y, la perdida que tenemos de información es la varianza de la variable que estamos eliminando). O sea que viendo la matriz S a priori nos podríamos dar cuenta que tanta pérdida de información tendríamos por reducir su dimensionalidad, valores altos de correlaciones o valores bajos de varianzas indicarían casos donde se podría aplicar ACP con muy poca pérdida de información.</p>
+<p>Una visión alternativa para el uso del ACP sería como método de compresión de datos. Siguiendo este ejemplo <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mstyle mathvariant="double-struck"><mi>ℝ</mi></mstyle><mn>2</mn></msup><mstyle mathvariant="double-struck"><mo>→</mo><mi>ℝ</mi></mstyle></mrow><annotation encoding="application/x-tex">\mathbb{R}^{2}\mathbb{\rightarrow R}</annotation></semantics></math> inicialmente tendremos dos series de N datos, y el ACP nos deja una sola serie de N coordenadas. Si a esa serie de coordenadas la multiplicamos por el vector base nos da los N puntos de nuevo bidimensionales, pero ahora todos sobre la recta <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>2</mn><mi>x</mi></mrow><annotation encoding="application/x-tex">y = 2x</annotation></semantics></math>. Visto para grandes cantidades de datos esto nos permitiría almacenarlos solo con las series de coordenadas que tienen una dimensionalidad menor y la matriz de coordenadas haría las veces de decodificador para volver a obtener la información inicial.</p>
+<p>Una última conclusión y no poco importante es que la componente principal obtenida (la “nueva variable”) va a ser una combinación lineal de las variables iniciales. El vector base que genera la recta <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>2</mn><mi>x</mi></mrow><annotation encoding="application/x-tex">y = 2x</annotation></semantics></math> es <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center"><mn>0.45</mn></mtd></mtr><mtr><mtd columnalign="center"><mn>0.9</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">b = \begin{bmatrix}
+0.45 \\
+0.9 \\
+\end{bmatrix}</annotation></semantics></math> (aproximadamente). Entonces el valor que va a tener la coordenada, que puede ser vista como una nueva variable Z va a ser los datos de cada par (X,Y) combinados linealmente con esos coeficientes. Esto recordemos sale del resultado de la coordenada para proyecciones ortogonales (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>B</mi><mtext mathvariant="normal">ij</mtext></msub><mo>=</mo><msup><msub><mi>x</mi><mi>j</mi></msub><mi>T</mi></msup><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> .</mtext></mrow><msub><mi>b</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">B_{\text{ij}} = {x_{j}}^{T}\text{\ .}b_{i}</annotation></semantics></math>)</p>
+<p>BIBLIOGRAFÍA CONSULTADA</p>
+</body>
+</html>

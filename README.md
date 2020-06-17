@@ -3,14 +3,14 @@
 ÍNDICE DE ACTIVIDAD ECONÓMICA DE MENDOZA, POR ANÁLISIS DE COMPONENTES PRINCIPALES 
 ==================================================================================
 
-
+>Publicado en: https://fernandodeluret.github.io/Tesis-Analisis-de-Componentes-Principales/
 
 
 
   --------------------------------------------------------------------------------------
   **INDICE**
   --------------------------------------------------------------------------------- ----
-  Introducción
+  INTRODUCCIÓN
   
   CAPÍTULO I – CONCEPTOS PREVIOS                                                    
 

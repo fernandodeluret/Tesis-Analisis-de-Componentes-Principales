@@ -4,12 +4,14 @@
 ==================================================================================
 
 
-INDICE 
-=======
+
+
 
   --------------------------------------------------------------------------------------
-  Introducción
+  **INDICE**
   --------------------------------------------------------------------------------- ----
+  Introducción
+  
   CAPÍTULO I – CONCEPTOS PREVIOS                                                    
 
   1.  Vectores y espacios vectoriales
@@ -35,7 +37,10 @@ INDICE
   Conclusiones
 
 
-**INTRODUCCIÓN**
+--------------------------------------------------------------------------------------
+  **INTRODUCCIÓN**
+--------------------------------------------------------------------------------- ----
+
 
 El análisis de componentes principales (ACP) es un método de reducción
 de dimensionalidad lineal de los datos. El objetivo es poder reducir el

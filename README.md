@@ -11,6 +11,7 @@
   --------------------------------------------------------------------------------------
   **INDICE**
   --------------------------------------------------------------------------------- ----
+  
   INTRODUCCIÓN
   
   CAPÍTULO I – ÍNDICE DE ACTIVIDAD ECONÓMICA
@@ -19,10 +20,10 @@
 3. Metodología
 
   CAPÍTULO II – CONCEPTOS PREVIOS 
-    1. Vectores y espacios vectoriales
-    2. Ortogonalidad
-    3. Proyecciones ortogonales 
-    4. Complemento ortogonal
+1. Vectores y espacios vectoriales
+2. Ortogonalidad
+3. Proyecciones ortogonales 
+4. Complemento ortogonal
 
   CAPÍTULO III – ANÁLISIS DE COMPONENTES PRINCIPALES
 

@@ -12,21 +12,29 @@
   **INDICE**
   --------------------------------------------------------------------------------- ----
   INTRODUCCIÓN
-CAPÍTULO I – ÍNDICE DE ACTIVIDAD ECONÓMICA
-1. Concepto 
-2. Estado actual e importancia
-3. Metodología
-CAPÍTULO II – CONCEPTOS PREVIOS 
-4. Vectores y espacios vectoriales
-5. Ortogonalidad
-6. Proyecciones ortogonales 
-7. Complemento ortogonal
-CAPÍTULO III – ANÁLISIS DE COMPONENTES PRINCIPALES
-CAPÍTULO IV – ANÁLISIS FACTORIAL
-CAPÍTULO V – ROTACIÓN DE COMPONENTES
-CAPÍTULO VI – CONSTRUCCIÓN DEL ÍNDICE 
-Conclusiones 
-Bibliografía consultada
+  
+  CAPÍTULO I – ÍNDICE DE ACTIVIDAD ECONÓMICA
+    1. Concepto 
+    2. Estado actual e importancia
+    3. Metodología
+
+  CAPÍTULO II – CONCEPTOS PREVIOS 
+    1. Vectores y espacios vectoriales
+    2. Ortogonalidad
+    3. Proyecciones ortogonales 
+    4. Complemento ortogonal
+
+  CAPÍTULO III – ANÁLISIS DE COMPONENTES PRINCIPALES
+
+  CAPÍTULO IV – ANÁLISIS FACTORIAL
+
+  CAPÍTULO V – ROTACIÓN DE COMPONENTES
+
+  CAPÍTULO VI – CONSTRUCCIÓN DEL ÍNDICE 
+
+  Conclusiones 
+
+  Bibliografía consultada
   
 
 

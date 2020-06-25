@@ -12,57 +12,30 @@
   **INDICE**
   --------------------------------------------------------------------------------- ----
   INTRODUCCIÓN
+CAPÍTULO I – ÍNDICE DE ACTIVIDAD ECONÓMICA
+1. Concepto 
+2. Estado actual e importancia
+3. Metodología
+CAPÍTULO II – CONCEPTOS PREVIOS 
+4. Vectores y espacios vectoriales
+5. Ortogonalidad
+6. Proyecciones ortogonales 
+7. Complemento ortogonal
+CAPÍTULO III – ANÁLISIS DE COMPONENTES PRINCIPALES
+CAPÍTULO IV – ANÁLISIS FACTORIAL
+CAPÍTULO V – ROTACIÓN DE COMPONENTES
+CAPÍTULO VI – CONSTRUCCIÓN DEL ÍNDICE 
+Conclusiones 
+Bibliografía consultada
   
-  CAPÍTULO I – CONCEPTOS PREVIOS                                                    
-
-  1.  Vectores y espacios vectoriales
-                                                                                    
-
-  1.  Ortogonalidad 
-                                                                                    
-
-  1.  Proyecciones ortogonales
-                                                                                    
-
-  1.  Complemento orthogonal
-                                                                                    
-
-  CAPÍTULO II – ANÁLISIS DE COMPONENTES PRINCIPALES
-
-  CAPÍTULO III – ANÁLISIS FACTORIAL
-
-  CAPÍTULO IV – ROTACIÓN DE COMPONENTES 
-
-  CAPÍTULO V – CASO PRÁCTICO
-
-  Conclusiones
 
 
 --------------------------------------------------------------------------------------
-  **INTRODUCCIÓN**
+  **RESUMEN**
 --------------------------------------------------------------------------------- ----
 
+El presente trabajo tiene por objetivo la construcción de un Índice de Actividad Económica (IAEMEN) para la provincia de Mendoza, el cual será de periodicidad mensual. En la actualidad no se ha publicado para la provincia ningún indicador de actividad económica de periodicidad menor a la anual. Esta investigación intenta presentar un aporte útil para satisfacer la necesidad de información actualizada de la situación económica regional. La metodología usada para la construcción del índice es el Análisis de Componentes Principales a partir de una serie de variables que se consideran representativas de la actividad económica de Mendoza, las cuales se encuentran disponibles en forma oportuna y tienen una periodicidad mensual en su publicación. El análisis de componentes principales (ACP) es un método de reducción de dimensionalidad lineal de los datos. El objetivo es poder reducir el número de variables necesarias para representar un conjunto de datos. Adicionalmente al objetivo inicial que era la construcción del índice se agregó, durante el desarrollo del trabajo, la compilación de la teoría del Análisis de Componentes Principales. Esto debido a que no existía una bibliografía en español que cubriera los diferentes aspectos del tema integrados. Como resultados del trabajo se logró construir un índice que captara los patrones de comportamiento particulares de la economía provincial, y se detectó un aparente
+rezago entre los movimientos de la economía de Mendoza respecto a la nacional.
 
-El análisis de componentes principales (ACP) es un método de reducción
-de dimensionalidad lineal de los datos. El objetivo es poder reducir el
-número de variables necesario para representar un conjunto de datos.
-Para esto lo que se hace es realizar una proyección ortogonal de los
-datos originales en un subespacio vectorial de menor dimensión, y que
-por ende pueda ser expresado como un conjunto menor de variables.
-
-El presente trabajo se estructurará de la siguiente manera, en el
-capítulo 1 se analizarán una serie de conceptos previos necesarios tanto
-para el desarrollo matemático del ACP como para su interpretación
-práctica. En el capítulo 2 se realizará el desarrollo a partir del cual
-surge la fórmula resultante del ACP. En el capítulo 3 se analizará el
-tema desde la perspectiva del análisis factorial que nos permite añadir
-el componente de interpretabilidad de los componentes. En el capítulo 4
-se analizará la rotación de componentes, que es la herramienta que nos
-permitirá relacionar las variables originales con los componentes o
-factores interpretando estas últimas como variables subyacentes
-observadas a través de los datos iniciales. En el capítulo 5 se
-trabajará con un caso numérico, el cual tendrá por objetivo tratar de
-construir un índice de actividad mensual para la provincia de Mendoza.
-Y, por último, se analizarán las consecuencias prácticas del ACP y se
-sacarán algunas conclusiones.
-
+>Palabras clave: Índice de Actividad Económica de Mendoza, Análisis de Componentes Principales, Análisis
+Factorial, EMAE, Producto Bruto Geográfico.

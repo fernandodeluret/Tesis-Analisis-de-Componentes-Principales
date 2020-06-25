@@ -15,8 +15,8 @@
   
   CAPÍTULO I – ÍNDICE DE ACTIVIDAD ECONÓMICA
     1. Concepto 
-    2. Estado actual e importancia
-    3. Metodología
+    1. Estado actual e importancia
+    1. Metodología
 
   CAPÍTULO II – CONCEPTOS PREVIOS 
     1. Vectores y espacios vectoriales
